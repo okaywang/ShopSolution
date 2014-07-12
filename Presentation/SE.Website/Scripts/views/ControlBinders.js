@@ -1,16 +1,19 @@
 ﻿(function () {
     webExpress.ui.control.binders = new BindersClass();
-    webExpress.ui.control.binders.nativeTextbox = new NativeTextboxBinderClass();
+    webExpress.ui.control.binders.nativeInputText = new NativeInputTextBinderClass();
+    webExpress.ui.control.binders.nativeInputPassword = new NativeInputPasswordBinderClass();
     webExpress.ui.control.binders.nativeRadiobutton = new NativeRadiobuttonBinderClass();
     webExpress.ui.control.binders.chinaAreas = new ChinaAreasBinderClass();
     function BindersClass() {
         var _self = this;
-        function _init(){
+        function _init() {
             _self.get = get;
         }
         function get(controlType) {
-            if (controlType == "NativeTextbox") {
+            if (controlType == "NativeInputText") {
                 return webExpress.ui.control.binders.nativeTextbox;
+            } else if (controlType == "NativeInputPassword") {
+                return webExpress.ui.control.binders.nativeInputPassword;
             } else if (controlType == "ChinaAreas") {
                 return webExpress.ui.control.binders.chinaAreas;
             } else if (controlType == "NativeRadiobutton")
@@ -20,18 +23,36 @@
         _init();
     }
 
-    function NativeTextboxBinderClass() {
+    function NativeInputBinderClass() {
         var _self = this;
         function _init() {
             _self.build = build;
         }
         function build($property) {
-            var control = $property.find("*").andSelf().filter(":text");
+            var control = $property.find("*").andSelf().filter(_self.selector);
             var propName = $property.attr("property-name");
             var expression = $(control).attr("data-bind");
             expression = "value:" + propName;
             $(control).attr("name", propName);
             $(control).attr("data-bind", expression);
+        }
+        _init();
+    }
+
+    function NativeInputTextBinderClass() {
+        NativeInputBinderClass.call(this);
+        var _self = this;
+        function _init() {
+            _self.selector = ":text";
+        }
+        _init();
+    }
+
+    function NativeInputPasswordBinderClass() {
+        NativeInputBinderClass.call(this);
+        var _self = this;
+        function _init() {
+            _self.selector = ":password";
         }
         _init();
     }

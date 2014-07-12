@@ -3,6 +3,7 @@
     se.ui.view.EditModule = EditModuleClass;
     se.ui.view.EditModule.Settings = EditModuleSettings;
     function EditModuleClass(settings) {
+        se.ui.view.Module.call(this, settings);
         var _self = this;
         var _viewModel;
         function _init() {
@@ -25,11 +26,15 @@
         }
 
         function bindModel(model) {
-            this.adaptModel(model);
+            if (this.adaptModel) {
+                this.adaptModel(model);
+            }
 
             _viewModel = kendo.observable(model);
 
-            this.adaptViewModel(_viewModel);
+            if (this.adaptViewModel) {
+                this.adaptViewModel(_viewModel);
+            }
 
             kendo.bind(settings.form, _viewModel);
         }
@@ -53,10 +58,11 @@
             var properties = $("[property-name]");
             for (var i = 0; i < properties.length; i++) {
                 var $property = $(properties[i]);
-                var attrRule = $property.attr("validate-rule");
-                if (attrRule && "required:true".indexOf(attrRule) > -1) {
+                var strRule = $property.attr("validate-rule");
+                if (strRule) {
+                    var rules = webExpress.utility.string.getObject(strRule);
                     var propName = $property.attr("property-name");
-                    options.rules[propName] = { required: true };
+                    options.rules[propName] = rules;
                 }
             }
 
@@ -71,24 +77,27 @@
             function (response) {
                 $(".panel-body").unmask();
                 if (response.IsSuccess) {
-                    alert("保存成功");
+                    _self.inactivate();
                 } else {
                     alert("保存错误," + response.Message);
                 }
             });
         }
+
         _init();
     }
 
     function EditModuleSettings(settings) {
+        se.ui.view.Module.Settings.call(this);
+
         this.getSaveModel = function (viewModel) {
             return viewModel;
         }
         this.getSaveModelId = function (saveModel) {
             return saveModel.Id;
         };
-        this.saveButton = $(".btn-save");
-        this.form = $("form");
+        this.form = $("form", settings.container);
+        this.saveButton = $(".btn-save", settings.container);
         this.addUrl = "";
         this.updateUrl = "";
 

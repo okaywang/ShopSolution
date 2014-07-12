@@ -333,6 +333,7 @@
     <Content Include="Scripts\views\base\se.ui.view.SearchViewBase.js" />
     <Content Include="Scripts\views\base\se.ui.control.Eventable.js" />
     <Content Include="Scripts\views\base\se.ui.control.ChinaArea.js" />
+    <Content Include="Scripts\views\base\se.ui.control.EditDialog.js" />
     <Content Include="Scripts\views\ControlBinders.js" />
     <Content Include="Scripts\views\Goods\Category.js" />
     <Content Include="Scripts\views\Goods\GoodsEdit.js" />

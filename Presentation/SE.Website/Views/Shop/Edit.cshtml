@@ -14,7 +14,7 @@
     <div class="panel-heading">编辑商户</div>
     <div class="panel-body">
         <form class="form-horizontal" role="form">
-            <div class="form-group" property-name="@PropName(i => i.Name)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true" >
+            <div class="form-group" property-name="@PropName(i => i.Name)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true" >
                 <label class="col-sm-1 control-label">商品名称</label>
                 <div class="col-sm-3 form-inline">
                     <input type="text" class="form-control" name="Name">
@@ -36,13 +36,13 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.DetailAddress)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.DetailAddress)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label"></label>
                 <div class="col-sm-3">
                     <input type="text" class="form-control">
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.ContactName)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.ContactName)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label">联系人</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control">
@@ -58,13 +58,13 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.MobilePhoneNumber)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.MobilePhoneNumber)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label">联系电话</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control">
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.TelePhoneNumber)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.TelePhoneNumber)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label">座机</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" />
@@ -73,18 +73,18 @@
             <div class="form-group" validate-rule="required:true">
                 <label class="col-sm-1 control-label">营业时间</label>
                 <div class="col-sm-2 form-inline">
-                    <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.OpeningTime)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+                    <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.OpeningTime)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                         <input type="text" class="form-control timepicker">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                     -
-                    <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.ClosingTime)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+                    <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.ClosingTime)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                         <input type="text" class="form-control timepicker">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.DeliveryMinAmount)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.DeliveryMinAmount)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label">起送价格</label>
                 <div class="col-sm-2">
                     <div class="input-group">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group" property-name="@PropName(i => i.DeliveryRate)" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+            <div class="form-group" property-name="@PropName(i => i.DeliveryRate)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
                 <label class="col-sm-1 control-label">配送费用</label>
                 <div class="col-sm-2">
                     <div class="input-group">

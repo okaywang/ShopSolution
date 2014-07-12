@@ -7,7 +7,9 @@ namespace SE.Website
 {
     public static class ControlTypes
     {
-        public const string NativeTextbox = "NativeTextbox";
+        public const string NativeInputText = "NativeInputText";
+        public const string NativeInputPassword = "NativeInputPassword"; 
+
         public const string NativeRadiobutton = "NativeRadiobutton";
         public const string NativeCheckbox = "NativeCheckbox";
 

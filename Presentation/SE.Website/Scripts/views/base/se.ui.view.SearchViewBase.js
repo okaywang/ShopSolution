@@ -6,6 +6,8 @@ function SearchViewBaseClass(settings) {
     var _self = this;
     function _init() {
         _self.init = init;
+
+        _self.modules = settings.modules;
     }
 
     function init() {

@@ -43,29 +43,29 @@
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label for="oldPwd" class="col-md-2 control-label">原密码：</label>
+                            <div class="form-group" property-name="OldPassword" control-type="@ControlTypes.NativeInputPassword" validate-rule="required:true">
+                                <label for="oldPwd" class="col-md-3 control-label">原密码</label>
                                 <div class="col-md-5">
-                                    <input type="password" class="form-control" name="OldPassword" />
+                                    <input type="password" class="form-control" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="newPwd" class="col-md-2 control-label">新密码：</label>
+                            <div class="form-group" property-name="NewPassword" control-type="@ControlTypes.NativeInputPassword" validate-rule="required:true,minlength:6">
+                                <label for="newPwd" class="col-md-3 control-label">新密码</label>
                                 <div class="col-md-5">
-                                    <input type="password" class="form-control" name="NewPassword" />
+                                    <input type="password" class="form-control" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="newPwd2" class="col-md-2 control-label">确认密码：</label>
+                            <div class="form-group" property-name="NewPassword2" control-type="@ControlTypes.NativeInputPassword" validate-rule="required:true,equalTo:'[name=NewPassword]'">
+                                <label for="newPwd2" class="col-md-3 control-label">确认密码</label>
                                 <div class="col-md-5">
-                                    <input type="password" class="form-control" name="NewPassword2" />
+                                    <input type="password" class="form-control" />
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary btn-ok">确定</button>
+                        <button type="button" class="btn btn-primary btn-save">确定</button>
                     </div>
                 </div>
             </div>
@@ -76,6 +76,9 @@
 </div>
 
 @section scripts{
+    <script src="~/Scripts/views/ControlBinders.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.Module.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
     <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
     <script src="~/Scripts/views/ShopAccountList.js"></script>
@@ -83,9 +86,26 @@
 
         var china = new se.ui.control.ChinaArea(".china-area");
 
-        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+        viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
             url: "/Account/Shops",
-            commands: se.view.ShopAccount.commands
+            rowCommands: se.ui.view.ShopAccount.rowCommands,
+            modules: {
+                changePassword: new se.ui.view.EditModule(new se.ui.view.EditModule.Settings({
+                    container: $(".modal-content"),
+                    updateUrl: "/Account/ChangePassword",
+                    getSaveModelId: function (saveModel) {
+                        return saveModel.AccountId;
+                    },
+                    activateHandler: function () {
+                        var validator = $("form", $(".modal-content")).validate();
+                        validator.resetForm();
+                        $('#myModal').modal("show");
+                    },
+                    inactivateHandler: function () {
+                        $('#myModal').modal("hide");
+                    }
+                }))
+            }
         }));
 
         viewInstance.init();

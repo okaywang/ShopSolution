@@ -1,18 +1,8 @@
-﻿se.view = {};
-se.view.ShopAccount = {};
-se.view.ShopAccount.commands = {
+﻿se.ui.view.ShopAccount = {};
+se.ui.view.ShopAccount.rowCommands = {
     changePassword: function (model) {
-        var dialogSettings = {
-            container: $('#myModal'),
-            okHandler: function (dlgModel) {
-                if (model.NewPassword == model.NewPassword2) {
-                    dlgModel.AccountId = model.AccountId;
-                    dialog.save("/Account/ChangePassword", dlgModel);
-                }
-            }
-        };
-        var dialog = se.ui.control.dialog.factory.get(dialogSettings);
-        dialog.show();
+        viewInstance.modules.changePassword.activate();
+        viewInstance.modules.changePassword.bindModel(model);
     }
 };
 

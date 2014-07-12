@@ -6,11 +6,18 @@
         var DEFAULT_PADDING_CHAR = " "; //space char
 
         var _self = this;
-
+        var _temp = null;
         function _init() {
             _self.padLeft = padLeft;
             _self.padRight = padRight;
             _self.isNullOrEmpty = isNullOrEmpty;
+            _self.getObject = getObject;
+        }
+
+        //convert string such as "a:3,b:'test'" to the equivalent object
+        function getObject(str) {
+            eval("_temp = {" + str + "}")
+            return _temp;
         }
 
         function padRight(str, totalWidth, padChar) {

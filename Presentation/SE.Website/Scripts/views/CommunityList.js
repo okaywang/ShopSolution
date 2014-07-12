@@ -1,8 +1,18 @@
 ﻿se.ui.view.CommunityList = {};
 se.ui.view.CommunityList.rowCommands = {
     editCommunity: function (model) {
-        $("#myModal").modal("show");        
-        se.ui.view.CommunityList.modules.editModule.bindModel(model);
+        var dialogSettings = {
+            container: $('#myModal')
+            //okHandler: function (dlgModel) {
+            //    if (model.NewPassword == model.NewPassword2) {
+            //        dlgModel.AccountId = model.AccountId;
+            //        dialog.save("/Account/ChangePassword", dlgModel);
+            //    }
+            //}
+        };
+        var dialog = se.ui.control.dialog.factory.get(dialogSettings);
+        dialog.show();        
+        //se.ui.view.CommunityList.modules.editModule.bindModel(model);
     },
     deleteCommunity: function (model) {
         bootbox.confirm("确定要删除  " + model.Name + "  吗？删除后，不可恢复！", function (isOk) {
@@ -27,6 +37,8 @@ se.ui.view.CommunityList.modules = {
         updateUrl: "/Community/update"
     }))
 }
+
+
 
 function CommunityEditModule(settings) {
     se.ui.view.EditModule.call(this, settings);
