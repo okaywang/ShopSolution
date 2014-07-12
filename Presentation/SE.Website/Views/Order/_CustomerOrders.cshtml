@@ -1,0 +1,103 @@
+﻿@model PagedModel<OrderModel>
+<div class="panel-group" id="accordion">
+    @{
+        var items = Model.Items;
+        var count = items.Count();
+        foreach (var item in items)
+        {
+           
+        <div class="panel panel-default" >
+            <div class="panel-heading" >
+               
+                <h4 class="panel-title">
+                    
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse@(item.OrderNumber)"> 订单详情  <span class="glyphicon glyphicon-chevron-down"></span></a><a href="#" style="margin-left:1280px;"><span class="badge">@count</span></a>  
+        
+                </h4>
+            </div>
+           @{count = count - 1;}
+            <div id="collapse@(item.OrderNumber)" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="rowOrder row">
+                        <div class="col-md-1 text-right">
+                            订单号:
+                        </div>
+                        <div class="col-md-11">
+                            @item.OrderNumber
+                        </div>
+                    </div>
+                    <div class="rowOrder row">
+                        <div class="col-md-1  text-right">
+                            下单时间:
+                        </div>
+                        <div class="col-md-11">
+                            @item.TransactionDateTime
+                        </div>
+                    </div>
+                    <div class="rowOrder row">
+                        <div class="col-md-1  text-right">
+                            超市信息:
+                        </div>
+                        <div class="col-md-11">
+                            @item.ShopMsg
+                        </div>
+                    </div>
+                    <div class="rowOrder row">
+                        <div class="col-md-1  text-right">
+                            用户备注信息:
+                        </div>
+                        <div class="col-md-11">
+                            @item.Remarks;
+                        </div>
+                    </div>
+                    <div class="rowOrder row">
+                        <div class="col-md-1  text-right">
+                            商品详情:                
+                        </div>
+                        <div class="col-md-11">
+                            <div>
+                                <table style="width: auto;" class="table table-bordered">
+                                    <thead style="background-color: #cccccc">
+                                        <tr>
+                                            <th>商品名称</th>
+                                            <th>份数</th>
+                                            <th>单价</th>
+                                            <th>总价</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var detail in item.Details)
+                                            {
+                                                <tr>
+                                                <td>@detail.SkuName</td>
+                                                <td>@detail.Quantity</td>
+                                                <td>￥@detail.Price</td>
+                                                <td>￥@(detail.Quantity*detail.Price)</td>
+                                                </tr>
+                                            }
+                                            
+                                        }
+                                        <tr>
+
+                                            <td style="margin-left: 100px;" colspan="4"><font color="red">总价：￥@item.TotalPrice</font></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        
+        }  
+         
+    }
+
+
+</div>

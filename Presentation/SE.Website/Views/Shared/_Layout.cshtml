@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>超市入口管理后台</title>
+    <link href="/Content/fromwangying/admin.css" rel="stylesheet" />
+    <link href="/Content/fromwangying/datepicker.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-timepicker.css" rel="stylesheet" />
+    @System.Web.Optimization.Styles.Render("~/css")
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    @RenderSection("styles", false)
+    <style>
+        [validate-rule*=requi] .control-label:before {
+            content: '* ';
+            color: red;
+        }
+        .control-label:after {
+            content:'：'
+        }
+    </style>
+</head>
+<body>
+    <div class="wabPage">
+        <header class="hd clearfix">
+            <div class="logo"></div>
+            <div class="toptitle">
+                超市入口管理后台
+            </div>
+            <div class="loginInfo">
+                <span>admin</span>,您好，欢迎使用<span class="line">|</span><a href="/Account/LogOff" class="importMsg">退出</a>
+                <p>客服电话：010-53802585</p>
+            </div>
+        </header>
+        <table border="0" cellspacing="0" cellpadding="0" class="bd">
+            <tr>
+                <td width="189" class="sidebar J_sidebar" valign="top">
+                    <ul class="menu" style="position: initial; padding: 0px; border-style: none;">
+                        <li class="menuTitle"><i class="homeicon"></i><a href="/Home/Index">后台首页</a></li>
+                        <li class="menuTitle J_menu"><i class="pdicon"></i>商品管理 <span class="hover-down"></span></li>
+                        <ul class="menulist J_menuList">
+                            <li><a href="/Goods/Category">商品类型管理</a></li>
+                            <li><a href="#">品牌管理</a></li>
+                            <li class="lastline"><a href="#">商品管理</a></li>
+                            <li class="lastline"><a href="/Goods/Add">添加商品</a></li>
+                            <li class="lastline"><a href="#">公共商品库</a></li>
+                        </ul>
+                        <li class="menuTitle J_menu"><i class="pdicon"></i>订单管理 <span class="hover-down"></span></li>
+                        <ul class="menulist J_menuList">
+                            <li><a href="#">订单管理</a></li>
+                            <li><a href="#">订单统计</a></li>
+                        </ul>
+                        <li class="menuTitle J_menu"><i class="hlicon"></i>商户管理<span class="hover-down"></span></li>
+                        <ul class="menulist J_menuList">
+                            <li><a href="/Shop/List">商户管理</a></li>
+                            <li><a href="/Account/Shops">账号维护</a></li>
+                        </ul>
+                        <li class="menuTitle J_menu"><i class="pjicon"></i>会员管理<span class="hover-down"></span></li>
+                        <ul class="menulist J_menuList">
+                            <li><a href="/Customer/List">会员管理</a></li>
+                        <li class="menuTitle J_menu"><i class="hlicon"></i>系统设置<span class="hover-down"></span></li>
+                        <ul class="menulist J_menuList">
+                            <li><a href="/Community/List">楼宇库</a></li>
+                            <li><a href="/Account/Persons">内部账号管理</a></li>
+                        </ul>
+                    </ul>
+                </td>
+                <td class="page-content" valign="top">
+                    @RenderBody()
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    @*@System.Web.Optimization.Scripts.Render("~/js")*@
+    <script src="/Scripts/jquery-1.8.2.js"></script>
+    <script src="/Scripts/fromwangying/admin.js"></script>
+    <script src="/Scripts/fromwangying/datepicker.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/Extension/language_CN.js"></script>
+    <script src="~/Scripts/Extension/jQueryExtension.js"></script>
+    <script src="~/Scripts/jquery.loadmask.js"></script>
+
+    <script src="~/Scripts/Kendo/kendo.web.js"></script>
+
+
+    <script src="~/Scripts/webExpress/webExpress.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.ajax.js"></script>
+
+    <script src="~/Scripts/common/se.js"></script>
+
+    <script src="~/Scripts/views/base/se.ui.control.Eventable.js"></script>
+    <script src="~/Scripts/views/base/se.ui.control.Dialog.js"></script>    
+    <script src="~/Scripts/views/base/se.ui.control.Pager.js"></script>
+
+    <script src="~/Scripts/chinaArea.js"></script>
+    <script src="~/Scripts/chinaAreaRetriever.js"></script>
+    <script src="~/Scripts/dynamicScript.js"></script>
+
+    @RenderSection("scripts", false)
+
+</body>
+</html>

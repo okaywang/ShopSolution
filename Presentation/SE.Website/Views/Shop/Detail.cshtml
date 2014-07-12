@@ -1,0 +1,39 @@
+﻿@model ShopDetailModel
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="row">
+    <div class="col-md-3">
+        <a href="javascript:;" class="thumbnail">
+            <img src="http://news.youth.cn/jsxw/201406/W020140618279519470985.jpg">
+        </a>
+    </div>
+</div>
+
+<div class="shop-detail">
+    <div class="row">
+        <div class="col-md-1 text-right">
+            <label>商户名称</label>
+        </div>
+        <div class="col-md-10">
+            @Model.Name
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-right">
+            <label>登录名</label>
+        </div>
+        <div class="col-md-10">
+            @Model.LoginName
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-right">
+            <label>详细地址</label>
+        </div>
+        <div class="col-md-10">
+            @Model.DetailAddress
+        </div>
+    </div>
+
+</div>

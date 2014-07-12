@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "OrderDetail";
+    
+}
+<script src="~/Scripts/date/WdatePicker.js"></script>
+<style>
+    .rowOrder {
+        padding-bottom: 10px;
+    }
+     .dinput {
+    border: 1px solid #9E9E9E;
+    display: inline-block;
+     float: left;
+    height: 28px;
+    padding: 0 2px;
+}
+     .intime s {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("/Scripts/date/time.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #9E9E9E #9E9E9E #9E9E9E -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 28px;
+    width: 30px;
+}
+      .intime {
+    display: inline-block;
+    float: left;
+    height: 30px;
+    margin-top: 10px;
+}
+      .inblock {
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    margin: 0 10px;
+    padding-top: 17px;
+}
+       .dtext {
+    color: #8E8071;
+    display: inline-block;
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-top: 11px;
+}
+    .tableOrder {
+        width: 200px;
+    }
+</style>
+<div class="search-criteria" style="padding: 20px 0; border-bottom: 1px dotted #e2e2e2">
+    <form class="form-inline" role="form">
+        <span class="dtext">下单时间:</span>
+        <div class="form-group">
+            
+          <span class="intime">
+                            <input type="text" name="StartOrderTime" class="dinput" value="" id="time1" style="width: 80px"><s onclick="WdatePicker({el:'time1',dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'time2\',{d:0});}'});"></s></span>
+	                    <span class="inblock">至</span>
+	                    <span class="intime">
+                            <input type="text" value="" name="EndOrderTime" class="dinput" id="time2" style="width: 80px"><s onclick="WdatePicker({el:'time2',dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'time1\',{d:0});}'});"></s></span>
+            <input type="hidden" name="CustomerId" class="form-control input-sm" value="@HttpContext.Current.Request.QueryString["CustomerId"]" />
+        </div>      
+        <button type="button" role="search" class="btn btn-primary btn-sm"  style="margin-left: 23px; margin-top: 6px;">查询</button>
+    </form>
+</div>
+
+<div class="search-feedback">
+</div>
+
+<div class="search-action">
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 20px;">
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Extension/jQueryExtension.js"></script>
+    <script src="~/Scripts/jquery.loadmask.js"></script>
+
+    <script src="~/Scripts/webExpress/webExpress.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.ajax.js"></script>
+
+    <script src="~/Scripts/common/se.js"></script>
+    <script src="~/Scripts/views/base/se.ui.control.Pager.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script>
+        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Order/CustomerOrders",
+        }));
+        viewInstance.init();
+    </script>
+}

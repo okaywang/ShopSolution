@@ -1,0 +1,38 @@
+﻿@model PagedModel<ShopAccountModel>
+<div class="search-result-table">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>所属城市</th>
+                <th>登录名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var startNo = Model.PagingResult.PageIndex * Model.PagingResult.PageSize + 1;
+                for (int i = 0; i < Model.Items.Count; i++)
+                {
+                    var item = Model.Items[i];
+                <tr model-field-entry="AccountId:@item.AccountId">
+                    <td>@(startNo + i)</td>
+                    <td>@item.Name</td>
+                    <td>@item.CityName</td>
+                    <td model-field="LoginName">@item.LoginName</td>
+                    <td>
+                        <a href="/Shop/Edit/@item.ShopId">完善资料</a>
+                        <a href="javascript:;" command-name="changePassword" >修改密码</a>
+                        <a command-name="viewDetail" href="/Shop/Detail/@item.ShopId" target="_blank" >查看</a>
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="search-result-pagination">
+    @Html.Partial("_Pager", Model.PagingResult)
+</div>

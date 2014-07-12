@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "会员管理";
+}
+
+<div class="search-criteria" style="padding: 20px 0; border-bottom: 1px dotted #e2e2e2">
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label class="control-label">会员电话:</label>
+            <input type="text" name="PhonePart" class="form-control input-sm" />
+            <input type="hidden" name="CustomerId" class="form-control input-sm" />
+        </div>
+        @*<div class="form-group">
+            <label class="control-label">所属城市:</label>
+            <select name="ProvinceId" class="form-control input-sm">
+                <option>shandong</option>
+            </select>
+            <select name="CityId" class="form-control input-sm">
+                <option value=""></option>
+                <option value="1">heze</option>
+            </select>
+            <select name="CountyId" class="form-control input-sm">
+                <option>caoxian</option>
+            </select>
+        </div>*@
+        <button type="button" role="search" class="btn btn-primary btn-sm">查询</button>
+    </form>
+</div>
+
+<div class="search-feedback">
+</div>
+
+<div class="search-action">
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 20px;">
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/Extension/jQueryExtension.js"></script>
+    <script src="~/Scripts/jquery.loadmask.js"></script>
+
+    <script src="~/Scripts/webExpress/webExpress.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.js"></script>
+    <script src="~/Scripts/webExpress/webExpress.utility.ajax.js"></script>
+
+    <script src="~/Scripts/common/se.js"></script>
+    <script src="~/Scripts/views/base/se.ui.control.Pager.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script>
+        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Customer/List",
+        }));
+        viewInstance.init();
+    </script>
+}

@@ -1,0 +1,6 @@
+.page-content {
+    padding:8px 20px 24px;
+}
+.btn[role=search] {
+    width:100px;
+}

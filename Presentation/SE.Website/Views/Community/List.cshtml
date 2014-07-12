@@ -1,0 +1,114 @@
+﻿<div class="search-criteria" style="padding: 20px 0; border-bottom: 1px dotted #e2e2e2">
+    <form class="form-inline" role="form">
+        <div class="form-group china-area">
+            <label class="control-label">所属城市:</label>
+            <select name="ProvinceId" class="form-control input-sm">
+                <option value=""></option>
+                <option>shandong</option>
+            </select>
+            <select name="CityId" class="form-control input-sm">
+                <option value=""></option>
+                <option value="1">heze</option>
+            </select>
+            <select name="CountyId" class="form-control input-sm">
+                <option value=""></option>
+                <option>caoxian</option>
+            </select>
+        </div>
+        <button type="button" role="search" class="btn btn-primary btn-sm">查询</button>
+    </form>
+</div>
+
+<div class="search-feedback">
+</div>
+
+<div class="search-action">
+    <button type="button" class="btn btn-primary btn-sm" command-name="addCommunity">添加楼宇</button>
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 20px;">
+</div>
+<div class="search-widget">
+    <div class="search-widget-reset-Community">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">编辑楼宇</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-dialog" role="form">
+                            <div class="form-group" property-name="CountyId" control-type="@ControlTypes.ChinaAreas" validate-rule="required:true">
+                                <label class="col-md-3 control-label">地区选择</label>
+                                <div class="col-md-9 form-inline china-area">
+                                    <select name="ProvinceId" class="form-control input-sm">
+                                    </select>
+                                    <select name="CityId" class="form-control input-sm">
+                                        <option value=""></option>
+                                        <option value="1">heze</option>
+                                    </select>
+                                    <select name="CountyId" class="form-control input-sm">
+                                        <option value=""></option>
+                                        <option>caoxian</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @*style="width:100px;float: left;margin-left: 15px;" *@
+                            <div class="form-group" property-name="Name" control-type="@ControlTypes.NativeTextbox" validate-rule="required:true">
+                                <label class="col-md-3 control-label">楼宇\小区</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group" property-name="Longitude" control-type="@ControlTypes.NativeTextbox">
+                                <label class="col-md-3 control-label">经度</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group" property-name="Latitude" control-type="@ControlTypes.NativeTextbox">
+                                <label class="col-md-3 control-label">纬度</label>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary btn-save">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-widget-view-detail">
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
+    <script src="~/Scripts/views/ControlBinders.js"></script>
+    <script src="~/Scripts/chinaAreaRetriever.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
+    <script src="~/Scripts/views/base/se.ui.control.Dialog.js"></script>
+    <script src="~/Scripts/views/CommunityList.js"></script>
+    <script>
+        $(".search-criteria .china-area").chinaArea();
+
+        //$(".search-action button").click(function () {
+        //    $("#myModal").modal("show");
+        //    module.bindModel({});
+        //});
+
+        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Community/List",
+            viewCommands: se.ui.view.CommunityList.viewCommands,
+            rowCommands: se.ui.view.CommunityList.rowCommands,
+            modules: se.ui.view.CommunityList.modules
+        }));
+        viewInstance.init();
+    </script>
+}

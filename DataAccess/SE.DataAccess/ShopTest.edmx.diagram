@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc276ff28ee04e84b07c19a73d380a2f" Name="关系图1">
+        <EntityTypeShape EntityType="ShopTest10Model.Account" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.AccountAuthority" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.AdminPerson" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Authority" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Brand" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.BrandSkuType" Width="1.5" PointX="11.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.ChinaCity" Width="1.5" PointX="1.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.ChinaCounty" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.ChinaProvince" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Community" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.CommunityShop" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Customer" Width="1.5" PointX="9" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.OrderBody" Width="1.5" PointX="13.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.OrderHead" Width="1.5" PointX="11.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.RecipientAddress" Width="1.5" PointX="9" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Shop" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.Sku" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.SkuCategory" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.SkuType" Width="1.5" PointX="6" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopTest10Model.SkuUnit" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
+        <AssociationConnector Association="ShopTest10Model.FK__AccountAu__Accou__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__AdminPerson__Id__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Shop__Id__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__AccountAu__Autho__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__BrandSkuT__Brand__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Sku__BrandId__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__BrandSkuT__SkuTy__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__ChinaCity__Provi__0AD2A005" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__ChinaCoun__CityI__0F975522" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Community__Count__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Shop__CountyId__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Community__Commu__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Community__ShopI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__OrderHead__Custo__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Recipient__Custo__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__OrderBody__Order__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__OrderBody__SkuId__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__OrderHead__Addre__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__OrderHead__ShopI__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Sku__ShopId__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Sku__SkuCategory__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Sku__SkuTypeId__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__Sku__UnitId__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopTest10Model.FK__SkuType__SkuCate__2C3393D0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShopTest10Model.CashBack" Width="1.5" PointX="2.5983537913292434" PointY="3.4183649287644609" />
+        <AssociationConnector Association="ShopTest10Model.FK__CashBack__Custom__0E6E26BF" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,93 @@
+﻿<div class="search-criteria" style="padding: 20px 0; border-bottom: 1px dotted #e2e2e2">
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label class="control-label">超市名称:</label>
+            <input type="text" name="NamePart" class="form-control input-sm" />
+        </div>
+        <div class="form-group china-area">
+            <label class="control-label">所属城市:</label>
+            <select name="ProvinceId" class="form-control input-sm">
+                <option>shandong</option>
+            </select>
+            <select name="CityId" class="form-control input-sm">
+                <option value=""></option>
+                <option value="1">heze</option>
+            </select>
+            <select name="CountyId" class="form-control input-sm">
+                <option value=""></option>
+                <option>caoxian</option>
+            </select>
+
+        </div>
+        <button type="button" role="search" class="btn btn-primary btn-sm">查询</button>
+    </form>
+</div>
+
+<div class="search-feedback">
+</div>
+
+<div class="search-action">
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 20px;">
+</div>
+
+<div class="search-widget">
+    <div class="search-widget-reset-password">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="oldPwd" class="col-md-2 control-label">原密码：</label>
+                                <div class="col-md-5">
+                                    <input type="password" class="form-control" name="OldPassword" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPwd" class="col-md-2 control-label">新密码：</label>
+                                <div class="col-md-5">
+                                    <input type="password" class="form-control" name="NewPassword" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPwd2" class="col-md-2 control-label">确认密码：</label>
+                                <div class="col-md-5">
+                                    <input type="password" class="form-control" name="NewPassword2" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary btn-ok">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-widget-view-detail">
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script src="~/Scripts/views/ShopAccountList.js"></script>
+    <script>
+
+        var china = new se.ui.control.ChinaArea(".china-area");
+
+        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Account/Shops",
+            commands: se.view.ShopAccount.commands
+        }));
+
+        viewInstance.init();
+    </script>
+}

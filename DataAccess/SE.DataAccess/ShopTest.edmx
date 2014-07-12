@@ -1,0 +1,1562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ShopTest10Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ShopTest10ModelStoreContainer">
+          <EntitySet Name="Account" EntityType="ShopTest10Model.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AccountAuthority" EntityType="ShopTest10Model.Store.AccountAuthority" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdminPerson" EntityType="ShopTest10Model.Store.AdminPerson" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Authority" EntityType="ShopTest10Model.Store.Authority" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Brand" EntityType="ShopTest10Model.Store.Brand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BrandSkuType" EntityType="ShopTest10Model.Store.BrandSkuType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CashBack" EntityType="ShopTest10Model.Store.CashBack" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChinaCity" EntityType="ShopTest10Model.Store.ChinaCity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChinaCounty" EntityType="ShopTest10Model.Store.ChinaCounty" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChinaProvince" EntityType="ShopTest10Model.Store.ChinaProvince" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Community" EntityType="ShopTest10Model.Store.Community" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CommunityShop" EntityType="ShopTest10Model.Store.CommunityShop" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer" EntityType="ShopTest10Model.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderBody" EntityType="ShopTest10Model.Store.OrderBody" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderHead" EntityType="ShopTest10Model.Store.OrderHead" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RecipientAddress" EntityType="ShopTest10Model.Store.RecipientAddress" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shop" EntityType="ShopTest10Model.Store.Shop" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sku" EntityType="ShopTest10Model.Store.Sku" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkuCategory" EntityType="ShopTest10Model.Store.SkuCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkuType" EntityType="ShopTest10Model.Store.SkuType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SkuUnit" EntityType="ShopTest10Model.Store.SkuUnit" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__AccountAu__Accou__02084FDA" Association="ShopTest10Model.Store.FK__AccountAu__Accou__02084FDA">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="AccountAuthority" EntitySet="AccountAuthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountAu__Autho__02FC7413" Association="ShopTest10Model.Store.FK__AccountAu__Autho__02FC7413">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="AccountAuthority" EntitySet="AccountAuthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminPerson__Id__1FCDBCEB" Association="ShopTest10Model.Store.FK__AdminPerson__Id__1FCDBCEB">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="AdminPerson" EntitySet="AdminPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandSkuT__Brand__5070F446" Association="ShopTest10Model.Store.FK__BrandSkuT__Brand__5070F446">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="BrandSkuType" EntitySet="BrandSkuType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandSkuT__SkuTy__5165187F" Association="ShopTest10Model.Store.FK__BrandSkuT__SkuTy__5165187F">
+            <End Role="SkuType" EntitySet="SkuType" />
+            <End Role="BrandSkuType" EntitySet="BrandSkuType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CashBack__Custom__656C112C" Association="ShopTest10Model.Store.FK__CashBack__Custom__656C112C">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CashBack" EntitySet="CashBack" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChinaCity__Provi__0AD2A005" Association="ShopTest10Model.Store.FK__ChinaCity__Provi__0AD2A005">
+            <End Role="ChinaProvince" EntitySet="ChinaProvince" />
+            <End Role="ChinaCity" EntitySet="ChinaCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChinaCoun__CityI__0F975522" Association="ShopTest10Model.Store.FK__ChinaCoun__CityI__0F975522">
+            <End Role="ChinaCity" EntitySet="ChinaCity" />
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__Commu__5BE2A6F2" Association="ShopTest10Model.Store.FK__Community__Commu__5BE2A6F2">
+            <End Role="Community" EntitySet="Community" />
+            <End Role="CommunityShop" EntitySet="CommunityShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__Count__571DF1D5" Association="ShopTest10Model.Store.FK__Community__Count__571DF1D5">
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+            <End Role="Community" EntitySet="Community" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__ShopI__5CD6CB2B" Association="ShopTest10Model.Store.FK__Community__ShopI__5CD6CB2B">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="CommunityShop" EntitySet="CommunityShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderBody__Order__778AC167" Association="ShopTest10Model.Store.FK__OrderBody__Order__778AC167">
+            <End Role="OrderHead" EntitySet="OrderHead" />
+            <End Role="OrderBody" EntitySet="OrderBody" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderBody__SkuId__787EE5A0" Association="ShopTest10Model.Store.FK__OrderBody__SkuId__787EE5A0">
+            <End Role="Sku" EntitySet="Sku" />
+            <End Role="OrderBody" EntitySet="OrderBody" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__Addre__71D1E811" Association="ShopTest10Model.Store.FK__OrderHead__Addre__71D1E811">
+            <End Role="RecipientAddress" EntitySet="RecipientAddress" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__Custo__70DDC3D8" Association="ShopTest10Model.Store.FK__OrderHead__Custo__70DDC3D8">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__ShopI__6FE99F9F" Association="ShopTest10Model.Store.FK__OrderHead__ShopI__6FE99F9F">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipient__Custo__6A30C649" Association="ShopTest10Model.Store.FK__Recipient__Custo__6A30C649">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="RecipientAddress" EntitySet="RecipientAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shop__CountyId__38996AB5" Association="ShopTest10Model.Store.FK__Shop__CountyId__38996AB5">
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shop__Id__37A5467C" Association="ShopTest10Model.Store.FK__Shop__Id__37A5467C">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__BrandId__49C3F6B7" Association="ShopTest10Model.Store.FK__Sku__BrandId__49C3F6B7">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__ShopId__46E78A0C" Association="ShopTest10Model.Store.FK__Sku__ShopId__46E78A0C">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__SkuCategory__47DBAE45" Association="ShopTest10Model.Store.FK__Sku__SkuCategory__47DBAE45">
+            <End Role="SkuCategory" EntitySet="SkuCategory" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__SkuTypeId__48CFD27E" Association="ShopTest10Model.Store.FK__Sku__SkuTypeId__48CFD27E">
+            <End Role="SkuType" EntitySet="SkuType" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__UnitId__4AB81AF0" Association="ShopTest10Model.Store.FK__Sku__UnitId__4AB81AF0">
+            <End Role="SkuUnit" EntitySet="SkuUnit" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SkuType__SkuCate__2C3393D0" Association="ShopTest10Model.Store.FK__SkuType__SkuCate__2C3393D0">
+            <End Role="SkuCategory" EntitySet="SkuCategory" />
+            <End Role="SkuType" EntitySet="SkuType" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccountType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountAuthority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="AuthorityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorityType" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BrandSkuType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="SkuTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CashBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ChinaCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProvinceId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ChinaCounty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ChinaProvince">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Community">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountyId" Type="int" Nullable="false" />
+          <Property Name="FirstLetter" Type="nvarchar" MaxLength="3" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+        </EntityType>
+        <EntityType Name="CommunityShop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommunityId" Type="int" />
+          <Property Name="ShopId" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="OrderBody">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="SkuId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="OrderHead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="FromDeviceType" Type="int" Nullable="false" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+          <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="RecipientAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="DetailAddress" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountyId" Type="int" Nullable="false" />
+          <Property Name="IsIntegral" Type="bit" Nullable="false" />
+          <Property Name="CooperationStatus" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DetailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactGender" Type="int" />
+          <Property Name="MobilePhoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="TelePhoneNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="DailyOpeningTime" Type="time" />
+          <Property Name="DailyClosingTime" Type="time" />
+          <Property Name="DeliveryMinAmount" Type="int" />
+          <Property Name="DeliveryRate" Type="int" />
+          <Property Name="ImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="TemporaryClosingBeginDate" Type="date" />
+          <Property Name="TemporaryClosingEndDate" Type="date" />
+          <Property Name="ShopOpenDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IsPublic" Type="bit" Nullable="false" />
+          <Property Name="ShopId" Type="int" />
+          <Property Name="SkuCategoryId" Type="int" Nullable="false" />
+          <Property Name="SkuTypeId" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="SupplierName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Specification" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="DiscountPrice" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ImageFileName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SkuCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SkuType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SkuCategoryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SkuUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK__AccountAu__Accou__02084FDA">
+          <End Role="Account" Type="ShopTest10Model.Store.Account" Multiplicity="0..1" />
+          <End Role="AccountAuthority" Type="ShopTest10Model.Store.AccountAuthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAuthority">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountAu__Autho__02FC7413">
+          <End Role="Authority" Type="ShopTest10Model.Store.Authority" Multiplicity="1" />
+          <End Role="AccountAuthority" Type="ShopTest10Model.Store.AccountAuthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAuthority">
+              <PropertyRef Name="AuthorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminPerson__Id__1FCDBCEB">
+          <End Role="Account" Type="ShopTest10Model.Store.Account" Multiplicity="1" />
+          <End Role="AdminPerson" Type="ShopTest10Model.Store.AdminPerson" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdminPerson">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandSkuT__Brand__5070F446">
+          <End Role="Brand" Type="ShopTest10Model.Store.Brand" Multiplicity="1" />
+          <End Role="BrandSkuType" Type="ShopTest10Model.Store.BrandSkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandSkuType">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandSkuT__SkuTy__5165187F">
+          <End Role="SkuType" Type="ShopTest10Model.Store.SkuType" Multiplicity="1" />
+          <End Role="BrandSkuType" Type="ShopTest10Model.Store.BrandSkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandSkuType">
+              <PropertyRef Name="SkuTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CashBack__Custom__656C112C">
+          <End Role="Customer" Type="ShopTest10Model.Store.Customer" Multiplicity="1" />
+          <End Role="CashBack" Type="ShopTest10Model.Store.CashBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CashBack">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChinaCity__Provi__0AD2A005">
+          <End Role="ChinaProvince" Type="ShopTest10Model.Store.ChinaProvince" Multiplicity="1" />
+          <End Role="ChinaCity" Type="ShopTest10Model.Store.ChinaCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaProvince">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChinaCity">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChinaCoun__CityI__0F975522">
+          <End Role="ChinaCity" Type="ShopTest10Model.Store.ChinaCity" Multiplicity="1" />
+          <End Role="ChinaCounty" Type="ShopTest10Model.Store.ChinaCounty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChinaCounty">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__Commu__5BE2A6F2">
+          <End Role="Community" Type="ShopTest10Model.Store.Community" Multiplicity="0..1" />
+          <End Role="CommunityShop" Type="ShopTest10Model.Store.CommunityShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Community">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CommunityShop">
+              <PropertyRef Name="CommunityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__Count__571DF1D5">
+          <End Role="ChinaCounty" Type="ShopTest10Model.Store.ChinaCounty" Multiplicity="1" />
+          <End Role="Community" Type="ShopTest10Model.Store.Community" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCounty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Community">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__ShopI__5CD6CB2B">
+          <End Role="Shop" Type="ShopTest10Model.Store.Shop" Multiplicity="0..1" />
+          <End Role="CommunityShop" Type="ShopTest10Model.Store.CommunityShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CommunityShop">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderBody__Order__778AC167">
+          <End Role="OrderHead" Type="ShopTest10Model.Store.OrderHead" Multiplicity="1" />
+          <End Role="OrderBody" Type="ShopTest10Model.Store.OrderBody" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderHead">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderBody">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderBody__SkuId__787EE5A0">
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="1" />
+          <End Role="OrderBody" Type="ShopTest10Model.Store.OrderBody" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sku">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderBody">
+              <PropertyRef Name="SkuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__Addre__71D1E811">
+          <End Role="RecipientAddress" Type="ShopTest10Model.Store.RecipientAddress" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.Store.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipientAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__Custo__70DDC3D8">
+          <End Role="Customer" Type="ShopTest10Model.Store.Customer" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.Store.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__ShopI__6FE99F9F">
+          <End Role="Shop" Type="ShopTest10Model.Store.Shop" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.Store.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipient__Custo__6A30C649">
+          <End Role="Customer" Type="ShopTest10Model.Store.Customer" Multiplicity="1" />
+          <End Role="RecipientAddress" Type="ShopTest10Model.Store.RecipientAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipientAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shop__CountyId__38996AB5">
+          <End Role="ChinaCounty" Type="ShopTest10Model.Store.ChinaCounty" Multiplicity="1" />
+          <End Role="Shop" Type="ShopTest10Model.Store.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCounty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shop__Id__37A5467C">
+          <End Role="Account" Type="ShopTest10Model.Store.Account" Multiplicity="1" />
+          <End Role="Shop" Type="ShopTest10Model.Store.Shop" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__BrandId__49C3F6B7">
+          <End Role="Brand" Type="ShopTest10Model.Store.Brand" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__ShopId__46E78A0C">
+          <End Role="Shop" Type="ShopTest10Model.Store.Shop" Multiplicity="0..1" />
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__SkuCategory__47DBAE45">
+          <End Role="SkuCategory" Type="ShopTest10Model.Store.SkuCategory" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="SkuCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__SkuTypeId__48CFD27E">
+          <End Role="SkuType" Type="ShopTest10Model.Store.SkuType" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="SkuTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__UnitId__4AB81AF0">
+          <End Role="SkuUnit" Type="ShopTest10Model.Store.SkuUnit" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Store.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SkuType__SkuCate__2C3393D0">
+          <End Role="SkuCategory" Type="ShopTest10Model.Store.SkuCategory" Multiplicity="1" />
+          <End Role="SkuType" Type="ShopTest10Model.Store.SkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkuType">
+              <PropertyRef Name="SkuCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShopTest10Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ShopTest10Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="ShopTest10Model.Account" />
+          <EntitySet Name="AccountAuthority" EntityType="ShopTest10Model.AccountAuthority" />
+          <EntitySet Name="AdminPerson" EntityType="ShopTest10Model.AdminPerson" />
+          <EntitySet Name="Authority" EntityType="ShopTest10Model.Authority" />
+          <EntitySet Name="Brand" EntityType="ShopTest10Model.Brand" />
+          <EntitySet Name="BrandSkuType" EntityType="ShopTest10Model.BrandSkuType" />
+          <EntitySet Name="ChinaCity" EntityType="ShopTest10Model.ChinaCity" />
+          <EntitySet Name="ChinaCounty" EntityType="ShopTest10Model.ChinaCounty" />
+          <EntitySet Name="ChinaProvince" EntityType="ShopTest10Model.ChinaProvince" />
+          <EntitySet Name="Community" EntityType="ShopTest10Model.Community" />
+          <EntitySet Name="CommunityShop" EntityType="ShopTest10Model.CommunityShop" />
+          <EntitySet Name="Customer" EntityType="ShopTest10Model.Customer" />
+          <EntitySet Name="OrderBody" EntityType="ShopTest10Model.OrderBody" />
+          <EntitySet Name="OrderHead" EntityType="ShopTest10Model.OrderHead" />
+          <EntitySet Name="RecipientAddress" EntityType="ShopTest10Model.RecipientAddress" />
+          <EntitySet Name="Shop" EntityType="ShopTest10Model.Shop" />
+          <EntitySet Name="Sku" EntityType="ShopTest10Model.Sku" />
+          <EntitySet Name="SkuCategory" EntityType="ShopTest10Model.SkuCategory" />
+          <EntitySet Name="SkuType" EntityType="ShopTest10Model.SkuType" />
+          <EntitySet Name="SkuUnit" EntityType="ShopTest10Model.SkuUnit" />
+          <AssociationSet Name="FK__AccountAu__Accou__7C4F7684" Association="ShopTest10Model.FK__AccountAu__Accou__7C4F7684">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="AccountAuthority" EntitySet="AccountAuthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminPerson__Id__1FCDBCEB" Association="ShopTest10Model.FK__AdminPerson__Id__1FCDBCEB">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="AdminPerson" EntitySet="AdminPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shop__Id__37A5467C" Association="ShopTest10Model.FK__Shop__Id__37A5467C">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountAu__Autho__7D439ABD" Association="ShopTest10Model.FK__AccountAu__Autho__7D439ABD">
+            <End Role="Authority" EntitySet="Authority" />
+            <End Role="AccountAuthority" EntitySet="AccountAuthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandSkuT__Brand__4F7CD00D" Association="ShopTest10Model.FK__BrandSkuT__Brand__4F7CD00D">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="BrandSkuType" EntitySet="BrandSkuType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__BrandId__48CFD27E" Association="ShopTest10Model.FK__Sku__BrandId__48CFD27E">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrandSkuT__SkuTy__5070F446" Association="ShopTest10Model.FK__BrandSkuT__SkuTy__5070F446">
+            <End Role="SkuType" EntitySet="SkuType" />
+            <End Role="BrandSkuType" EntitySet="BrandSkuType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChinaCity__Provi__0AD2A005" Association="ShopTest10Model.FK__ChinaCity__Provi__0AD2A005">
+            <End Role="ChinaProvince" EntitySet="ChinaProvince" />
+            <End Role="ChinaCity" EntitySet="ChinaCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChinaCoun__CityI__0F975522" Association="ShopTest10Model.FK__ChinaCoun__CityI__0F975522">
+            <End Role="ChinaCity" EntitySet="ChinaCity" />
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__Count__5629CD9C" Association="ShopTest10Model.FK__Community__Count__5629CD9C">
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+            <End Role="Community" EntitySet="Community" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shop__CountyId__38996AB5" Association="ShopTest10Model.FK__Shop__CountyId__38996AB5">
+            <End Role="ChinaCounty" EntitySet="ChinaCounty" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__Commu__5AEE82B9" Association="ShopTest10Model.FK__Community__Commu__5AEE82B9">
+            <End Role="Community" EntitySet="Community" />
+            <End Role="CommunityShop" EntitySet="CommunityShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Community__ShopI__5BE2A6F2" Association="ShopTest10Model.FK__Community__ShopI__5BE2A6F2">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="CommunityShop" EntitySet="CommunityShop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__Custo__6B24EA82" Association="ShopTest10Model.FK__OrderHead__Custo__6B24EA82">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipient__Custo__6477ECF3" Association="ShopTest10Model.FK__Recipient__Custo__6477ECF3">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="RecipientAddress" EntitySet="RecipientAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderBody__Order__71D1E811" Association="ShopTest10Model.FK__OrderBody__Order__71D1E811">
+            <End Role="OrderHead" EntitySet="OrderHead" />
+            <End Role="OrderBody" EntitySet="OrderBody" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderBody__SkuId__72C60C4A" Association="ShopTest10Model.FK__OrderBody__SkuId__72C60C4A">
+            <End Role="Sku" EntitySet="Sku" />
+            <End Role="OrderBody" EntitySet="OrderBody" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__Addre__6C190EBB" Association="ShopTest10Model.FK__OrderHead__Addre__6C190EBB">
+            <End Role="RecipientAddress" EntitySet="RecipientAddress" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderHead__ShopI__6A30C649" Association="ShopTest10Model.FK__OrderHead__ShopI__6A30C649">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="OrderHead" EntitySet="OrderHead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__ShopId__45F365D3" Association="ShopTest10Model.FK__Sku__ShopId__45F365D3">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__SkuCategory__46E78A0C" Association="ShopTest10Model.FK__Sku__SkuCategory__46E78A0C">
+            <End Role="SkuCategory" EntitySet="SkuCategory" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__SkuTypeId__47DBAE45" Association="ShopTest10Model.FK__Sku__SkuTypeId__47DBAE45">
+            <End Role="SkuType" EntitySet="SkuType" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sku__UnitId__49C3F6B7" Association="ShopTest10Model.FK__Sku__UnitId__49C3F6B7">
+            <End Role="SkuUnit" EntitySet="SkuUnit" />
+            <End Role="Sku" EntitySet="Sku" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SkuType__SkuCate__2C3393D0" Association="ShopTest10Model.FK__SkuType__SkuCate__2C3393D0">
+            <End Role="SkuCategory" EntitySet="SkuCategory" />
+            <End Role="SkuType" EntitySet="SkuType" />
+          </AssociationSet>
+          <EntitySet Name="CashBack" EntityType="ShopTest10Model.CashBack" />
+          <AssociationSet Name="FK__CashBack__Custom__0E6E26BF" Association="ShopTest10Model.FK__CashBack__Custom__0E6E26BF">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CashBack" EntitySet="CashBack" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountAuthority" Relationship="ShopTest10Model.FK__AccountAu__Accou__7C4F7684" FromRole="Account" ToRole="AccountAuthority" />
+          <NavigationProperty Name="AdminPerson" Relationship="ShopTest10Model.FK__AdminPerson__Id__1FCDBCEB" FromRole="Account" ToRole="AdminPerson" />
+          <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__Shop__Id__37A5467C" FromRole="Account" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="AccountAuthority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="AuthorityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="ShopTest10Model.FK__AccountAu__Accou__7C4F7684" FromRole="AccountAuthority" ToRole="Account" />
+          <NavigationProperty Name="Authority" Relationship="ShopTest10Model.FK__AccountAu__Autho__7D439ABD" FromRole="AccountAuthority" ToRole="Authority" />
+        </EntityType>
+        <EntityType Name="AdminPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Department" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Account" Relationship="ShopTest10Model.FK__AdminPerson__Id__1FCDBCEB" FromRole="AdminPerson" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Authority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorityType" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="AccountAuthority" Relationship="ShopTest10Model.FK__AccountAu__Autho__7D439ABD" FromRole="Authority" ToRole="AccountAuthority" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BrandSkuType" Relationship="ShopTest10Model.FK__BrandSkuT__Brand__4F7CD00D" FromRole="Brand" ToRole="BrandSkuType" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__Sku__BrandId__48CFD27E" FromRole="Brand" ToRole="Sku" />
+        </EntityType>
+        <EntityType Name="BrandSkuType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="SkuTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="ShopTest10Model.FK__BrandSkuT__Brand__4F7CD00D" FromRole="BrandSkuType" ToRole="Brand" />
+          <NavigationProperty Name="SkuType" Relationship="ShopTest10Model.FK__BrandSkuT__SkuTy__5070F446" FromRole="BrandSkuType" ToRole="SkuType" />
+        </EntityType>
+        <EntityType Name="ChinaCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChinaProvince" Relationship="ShopTest10Model.FK__ChinaCity__Provi__0AD2A005" FromRole="ChinaCity" ToRole="ChinaProvince" />
+          <NavigationProperty Name="ChinaCounty" Relationship="ShopTest10Model.FK__ChinaCoun__CityI__0F975522" FromRole="ChinaCity" ToRole="ChinaCounty" />
+        </EntityType>
+        <EntityType Name="ChinaCounty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChinaCity" Relationship="ShopTest10Model.FK__ChinaCoun__CityI__0F975522" FromRole="ChinaCounty" ToRole="ChinaCity" />
+          <NavigationProperty Name="Community" Relationship="ShopTest10Model.FK__Community__Count__5629CD9C" FromRole="ChinaCounty" ToRole="Community" />
+          <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__Shop__CountyId__38996AB5" FromRole="ChinaCounty" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="ChinaProvince">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChinaCity" Relationship="ShopTest10Model.FK__ChinaCity__Provi__0AD2A005" FromRole="ChinaProvince" ToRole="ChinaCity" />
+        </EntityType>
+        <EntityType Name="Community">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CountyId" Type="Int32" Nullable="false" />
+          <Property Name="FirstLetter" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Latitude" Type="Double" />
+          <NavigationProperty Name="ChinaCounty" Relationship="ShopTest10Model.FK__Community__Count__5629CD9C" FromRole="Community" ToRole="ChinaCounty" />
+          <NavigationProperty Name="CommunityShop" Relationship="ShopTest10Model.FK__Community__Commu__5AEE82B9" FromRole="Community" ToRole="CommunityShop" />
+        </EntityType>
+        <EntityType Name="CommunityShop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CommunityId" Type="Int32" />
+          <Property Name="ShopId" Type="Int32" />
+          <NavigationProperty Name="Community" Relationship="ShopTest10Model.FK__Community__Commu__5AEE82B9" FromRole="CommunityShop" ToRole="Community" />
+          <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__Community__ShopI__5BE2A6F2" FromRole="CommunityShop" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="11" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="OrderHead" Relationship="ShopTest10Model.FK__OrderHead__Custo__6B24EA82" FromRole="Customer" ToRole="OrderHead" />
+          <NavigationProperty Name="RecipientAddress" Relationship="ShopTest10Model.FK__Recipient__Custo__6477ECF3" FromRole="Customer" ToRole="RecipientAddress" />
+          <NavigationProperty Name="CashBack" Relationship="ShopTest10Model.FK__CashBack__Custom__0E6E26BF" FromRole="Customer" ToRole="CashBack" />
+        </EntityType>
+        <EntityType Name="OrderBody">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="SkuId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="OrderHead" Relationship="ShopTest10Model.FK__OrderBody__Order__71D1E811" FromRole="OrderBody" ToRole="OrderHead" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__OrderBody__SkuId__72C60C4A" FromRole="OrderBody" ToRole="Sku" />
+        </EntityType>
+        <EntityType Name="OrderHead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="FromDeviceType" Type="Int32" Nullable="false" />
+          <Property Name="ShopId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="ShopTest10Model.FK__OrderHead__Custo__6B24EA82" FromRole="OrderHead" ToRole="Customer" />
+          <NavigationProperty Name="OrderBody" Relationship="ShopTest10Model.FK__OrderBody__Order__71D1E811" FromRole="OrderHead" ToRole="OrderBody" />
+          <NavigationProperty Name="RecipientAddress" Relationship="ShopTest10Model.FK__OrderHead__Addre__6C190EBB" FromRole="OrderHead" ToRole="RecipientAddress" />
+          <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__OrderHead__ShopI__6A30C649" FromRole="OrderHead" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="RecipientAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="DetailAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="ShopTest10Model.FK__Recipient__Custo__6477ECF3" FromRole="RecipientAddress" ToRole="Customer" />
+          <NavigationProperty Name="OrderHead" Relationship="ShopTest10Model.FK__OrderHead__Addre__6C190EBB" FromRole="RecipientAddress" ToRole="OrderHead" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CountyId" Type="Int32" Nullable="false" />
+          <Property Name="IsIntegral" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DetailAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ContactName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="ContactGender" Type="ShopTest10Model.GenderType" />
+          <Property Name="MobilePhoneNumber" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
+          <Property Name="TelePhoneNumber" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DeliveryMinAmount" Type="Int32" />
+          <Property Name="DeliveryRate" Type="Int32" />
+          <Property Name="ImageFileName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Account" Relationship="ShopTest10Model.FK__Shop__Id__37A5467C" FromRole="Shop" ToRole="Account" />
+          <NavigationProperty Name="ChinaCounty" Relationship="ShopTest10Model.FK__Shop__CountyId__38996AB5" FromRole="Shop" ToRole="ChinaCounty" />
+          <NavigationProperty Name="CommunityShop" Relationship="ShopTest10Model.FK__Community__ShopI__5BE2A6F2" FromRole="Shop" ToRole="CommunityShop" />
+          <NavigationProperty Name="OrderHead" Relationship="ShopTest10Model.FK__OrderHead__ShopI__6A30C649" FromRole="Shop" ToRole="OrderHead" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__Sku__ShopId__45F365D3" FromRole="Shop" ToRole="Sku" />
+          <Property Type="ShopTest10Model.ShopCooperationStatus" Name="CooperationStatus" Nullable="false" />
+          <Property Type="DateTime" Name="TemporaryClosingBeginDate" Precision="0" />
+          <Property Type="DateTime" Name="TemporaryClosingEndDate" Precision="0" />
+          <Property Type="Time" Name="DailyClosingTime" Precision="7" />
+          <Property Type="DateTime" Name="ShopOpenDateTime" Precision="3" />
+          <Property Type="Time" Name="DailyOpeningTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Sku">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IsPublic" Type="Boolean" Nullable="false" />
+          <Property Name="ShopId" Type="Int32" />
+          <Property Name="SkuCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="SkuTypeId" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Specification" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="DiscountPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ImageFileName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Brand" Relationship="ShopTest10Model.FK__Sku__BrandId__48CFD27E" FromRole="Sku" ToRole="Brand" />
+          <NavigationProperty Name="OrderBody" Relationship="ShopTest10Model.FK__OrderBody__SkuId__72C60C4A" FromRole="Sku" ToRole="OrderBody" />
+          <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__Sku__ShopId__45F365D3" FromRole="Sku" ToRole="Shop" />
+          <NavigationProperty Name="SkuCategory" Relationship="ShopTest10Model.FK__Sku__SkuCategory__46E78A0C" FromRole="Sku" ToRole="SkuCategory" />
+          <NavigationProperty Name="SkuType" Relationship="ShopTest10Model.FK__Sku__SkuTypeId__47DBAE45" FromRole="Sku" ToRole="SkuType" />
+          <NavigationProperty Name="SkuUnit" Relationship="ShopTest10Model.FK__Sku__UnitId__49C3F6B7" FromRole="Sku" ToRole="SkuUnit" />
+        </EntityType>
+        <EntityType Name="SkuCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__Sku__SkuCategory__46E78A0C" FromRole="SkuCategory" ToRole="Sku" />
+          <NavigationProperty Name="SkuType" Relationship="ShopTest10Model.FK__SkuType__SkuCate__2C3393D0" FromRole="SkuCategory" ToRole="SkuType" />
+        </EntityType>
+        <EntityType Name="SkuType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SkuCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BrandSkuType" Relationship="ShopTest10Model.FK__BrandSkuT__SkuTy__5070F446" FromRole="SkuType" ToRole="BrandSkuType" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__Sku__SkuTypeId__47DBAE45" FromRole="SkuType" ToRole="Sku" />
+          <NavigationProperty Name="SkuCategory" Relationship="ShopTest10Model.FK__SkuType__SkuCate__2C3393D0" FromRole="SkuType" ToRole="SkuCategory" />
+        </EntityType>
+        <EntityType Name="SkuUnit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sku" Relationship="ShopTest10Model.FK__Sku__UnitId__49C3F6B7" FromRole="SkuUnit" ToRole="Sku" />
+        </EntityType>
+        <Association Name="FK__AccountAu__Accou__7C4F7684">
+          <End Role="Account" Type="ShopTest10Model.Account" Multiplicity="0..1" />
+          <End Role="AccountAuthority" Type="ShopTest10Model.AccountAuthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAuthority">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminPerson__Id__1FCDBCEB">
+          <End Role="Account" Type="ShopTest10Model.Account" Multiplicity="1" />
+          <End Role="AdminPerson" Type="ShopTest10Model.AdminPerson" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdminPerson">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shop__Id__37A5467C">
+          <End Role="Account" Type="ShopTest10Model.Account" Multiplicity="1" />
+          <End Role="Shop" Type="ShopTest10Model.Shop" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountAu__Autho__7D439ABD">
+          <End Role="Authority" Type="ShopTest10Model.Authority" Multiplicity="1" />
+          <End Role="AccountAuthority" Type="ShopTest10Model.AccountAuthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAuthority">
+              <PropertyRef Name="AuthorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandSkuT__Brand__4F7CD00D">
+          <End Role="Brand" Type="ShopTest10Model.Brand" Multiplicity="1" />
+          <End Role="BrandSkuType" Type="ShopTest10Model.BrandSkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandSkuType">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__BrandId__48CFD27E">
+          <End Role="Brand" Type="ShopTest10Model.Brand" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrandSkuT__SkuTy__5070F446">
+          <End Role="SkuType" Type="ShopTest10Model.SkuType" Multiplicity="1" />
+          <End Role="BrandSkuType" Type="ShopTest10Model.BrandSkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandSkuType">
+              <PropertyRef Name="SkuTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChinaCity__Provi__0AD2A005">
+          <End Role="ChinaProvince" Type="ShopTest10Model.ChinaProvince" Multiplicity="1" />
+          <End Role="ChinaCity" Type="ShopTest10Model.ChinaCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaProvince">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChinaCity">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChinaCoun__CityI__0F975522">
+          <End Role="ChinaCity" Type="ShopTest10Model.ChinaCity" Multiplicity="1" />
+          <End Role="ChinaCounty" Type="ShopTest10Model.ChinaCounty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChinaCounty">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__Count__5629CD9C">
+          <End Role="ChinaCounty" Type="ShopTest10Model.ChinaCounty" Multiplicity="1" />
+          <End Role="Community" Type="ShopTest10Model.Community" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCounty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Community">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shop__CountyId__38996AB5">
+          <End Role="ChinaCounty" Type="ShopTest10Model.ChinaCounty" Multiplicity="1" />
+          <End Role="Shop" Type="ShopTest10Model.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChinaCounty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__Commu__5AEE82B9">
+          <End Role="Community" Type="ShopTest10Model.Community" Multiplicity="0..1" />
+          <End Role="CommunityShop" Type="ShopTest10Model.CommunityShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Community">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CommunityShop">
+              <PropertyRef Name="CommunityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Community__ShopI__5BE2A6F2">
+          <End Role="Shop" Type="ShopTest10Model.Shop" Multiplicity="0..1" />
+          <End Role="CommunityShop" Type="ShopTest10Model.CommunityShop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CommunityShop">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__Custo__6B24EA82">
+          <End Role="Customer" Type="ShopTest10Model.Customer" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipient__Custo__6477ECF3">
+          <End Role="Customer" Type="ShopTest10Model.Customer" Multiplicity="1" />
+          <End Role="RecipientAddress" Type="ShopTest10Model.RecipientAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecipientAddress">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderBody__Order__71D1E811">
+          <End Role="OrderHead" Type="ShopTest10Model.OrderHead" Multiplicity="1" />
+          <End Role="OrderBody" Type="ShopTest10Model.OrderBody" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderHead">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderBody">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderBody__SkuId__72C60C4A">
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="1" />
+          <End Role="OrderBody" Type="ShopTest10Model.OrderBody" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sku">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderBody">
+              <PropertyRef Name="SkuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__Addre__6C190EBB">
+          <End Role="RecipientAddress" Type="ShopTest10Model.RecipientAddress" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipientAddress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderHead__ShopI__6A30C649">
+          <End Role="Shop" Type="ShopTest10Model.Shop" Multiplicity="1" />
+          <End Role="OrderHead" Type="ShopTest10Model.OrderHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderHead">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__ShopId__45F365D3">
+          <End Role="Shop" Type="ShopTest10Model.Shop" Multiplicity="0..1" />
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__SkuCategory__46E78A0C">
+          <End Role="SkuCategory" Type="ShopTest10Model.SkuCategory" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="SkuCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__SkuTypeId__47DBAE45">
+          <End Role="SkuType" Type="ShopTest10Model.SkuType" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="SkuTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sku__UnitId__49C3F6B7">
+          <End Role="SkuUnit" Type="ShopTest10Model.SkuUnit" Multiplicity="1" />
+          <End Role="Sku" Type="ShopTest10Model.Sku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuUnit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sku">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SkuType__SkuCate__2C3393D0">
+          <End Role="SkuCategory" Type="ShopTest10Model.SkuCategory" Multiplicity="1" />
+          <End Role="SkuType" Type="ShopTest10Model.SkuType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkuCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkuType">
+              <PropertyRef Name="SkuCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CashBack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Precision="10" Scale="2" />
+          <NavigationProperty Name="Customer" Relationship="ShopTest10Model.FK__CashBack__Custom__0E6E26BF" FromRole="CashBack" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK__CashBack__Custom__0E6E26BF">
+          <End Type="ShopTest10Model.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="ShopTest10Model.CashBack" Role="CashBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CashBack">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="GenderType" a:ExternalTypeName="SE.Common.Types.GenderType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="ShopCooperationStatus" a:ExternalTypeName="SE.Common.Types.ShopCooperationStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShopTest10ModelStoreContainer" CdmEntityContainer="ShopTest10Entities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="ShopTest10Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountAuthority">
+            <EntityTypeMapping TypeName="ShopTest10Model.AccountAuthority">
+              <MappingFragment StoreEntitySet="AccountAuthority">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminPerson">
+            <EntityTypeMapping TypeName="ShopTest10Model.AdminPerson">
+              <MappingFragment StoreEntitySet="AdminPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authority">
+            <EntityTypeMapping TypeName="ShopTest10Model.Authority">
+              <MappingFragment StoreEntitySet="Authority">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AuthorityType" ColumnName="AuthorityType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="ShopTest10Model.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrandSkuType">
+            <EntityTypeMapping TypeName="ShopTest10Model.BrandSkuType">
+              <MappingFragment StoreEntitySet="BrandSkuType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="SkuTypeId" ColumnName="SkuTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChinaCity">
+            <EntityTypeMapping TypeName="ShopTest10Model.ChinaCity">
+              <MappingFragment StoreEntitySet="ChinaCity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChinaCounty">
+            <EntityTypeMapping TypeName="ShopTest10Model.ChinaCounty">
+              <MappingFragment StoreEntitySet="ChinaCounty">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChinaProvince">
+            <EntityTypeMapping TypeName="ShopTest10Model.ChinaProvince">
+              <MappingFragment StoreEntitySet="ChinaProvince">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Community">
+            <EntityTypeMapping TypeName="ShopTest10Model.Community">
+              <MappingFragment StoreEntitySet="Community">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="FirstLetter" ColumnName="FirstLetter" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommunityShop">
+            <EntityTypeMapping TypeName="ShopTest10Model.CommunityShop">
+              <MappingFragment StoreEntitySet="CommunityShop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommunityId" ColumnName="CommunityId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="ShopTest10Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderBody">
+            <EntityTypeMapping TypeName="ShopTest10Model.OrderBody">
+              <MappingFragment StoreEntitySet="OrderBody">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="SkuId" ColumnName="SkuId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHead">
+            <EntityTypeMapping TypeName="ShopTest10Model.OrderHead">
+              <MappingFragment StoreEntitySet="OrderHead">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="FromDeviceType" ColumnName="FromDeviceType" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipientAddress">
+            <EntityTypeMapping TypeName="ShopTest10Model.RecipientAddress">
+              <MappingFragment StoreEntitySet="RecipientAddress">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DetailAddress" ColumnName="DetailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop">
+            <EntityTypeMapping TypeName="ShopTest10Model.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="DailyOpeningTime" ColumnName="DailyOpeningTime" />
+                <ScalarProperty Name="ShopOpenDateTime" ColumnName="ShopOpenDateTime" />
+                <ScalarProperty Name="DailyClosingTime" ColumnName="DailyClosingTime" />
+                <ScalarProperty Name="TemporaryClosingEndDate" ColumnName="TemporaryClosingEndDate" />
+                <ScalarProperty Name="TemporaryClosingBeginDate" ColumnName="TemporaryClosingBeginDate" />
+                <ScalarProperty Name="CooperationStatus" ColumnName="CooperationStatus" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="IsIntegral" ColumnName="IsIntegral" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DetailAddress" ColumnName="DetailAddress" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactGender" ColumnName="ContactGender" />
+                <ScalarProperty Name="MobilePhoneNumber" ColumnName="MobilePhoneNumber" />
+                <ScalarProperty Name="TelePhoneNumber" ColumnName="TelePhoneNumber" />
+                <ScalarProperty Name="DeliveryMinAmount" ColumnName="DeliveryMinAmount" />
+                <ScalarProperty Name="DeliveryRate" ColumnName="DeliveryRate" />
+                <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sku">
+            <EntityTypeMapping TypeName="ShopTest10Model.Sku">
+              <MappingFragment StoreEntitySet="Sku">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="SkuCategoryId" ColumnName="SkuCategoryId" />
+                <ScalarProperty Name="SkuTypeId" ColumnName="SkuTypeId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkuCategory">
+            <EntityTypeMapping TypeName="ShopTest10Model.SkuCategory">
+              <MappingFragment StoreEntitySet="SkuCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkuType">
+            <EntityTypeMapping TypeName="ShopTest10Model.SkuType">
+              <MappingFragment StoreEntitySet="SkuType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SkuCategoryId" ColumnName="SkuCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkuUnit">
+            <EntityTypeMapping TypeName="ShopTest10Model.SkuUnit">
+              <MappingFragment StoreEntitySet="SkuUnit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CashBack">
+            <EntityTypeMapping TypeName="ShopTest10Model.CashBack">
+              <MappingFragment StoreEntitySet="CashBack">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+﻿@model SkuTypeModel
+@{
+    ViewBag.Title = "商品类型管理";
+}
+@section styles{
+    <style>
+        .search-action {
+            padding-top: 10px;
+        }
+
+        .glyphicon {
+            margin-right: .5em;
+        }
+    </style>
+}
+
+<div class="search-criteria">
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label class="control-label">商品分类:</label>
+            <select class="form-control input-sm" name="SkuCategoryId">
+                @foreach (var item in Model.SkuCategoryItem)
+                {
+                    if (Model.CategoryId == item.Id)
+                    {
+                    <option value="@item.Id" selected>@item.Name</option>
+                    }
+                    else
+                    {
+                    <option value="@item.Id">@item.Name</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">类型名称:</label>
+            <input type="text" name="NamePart" value="水" class="form-control input-sm" />
+        </div>
+        <button type="button" role="search" class="btn btn-primary btn-sm">查询</button>
+    </form>
+</div>
+<div class="search-feedback">
+</div>
+<div class="search-action">
+    <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span>添加</button>
+
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 10px;">
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script>
+        var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Goods/Type"
+        }));
+        viewInstance.init();
+    </script>
+}

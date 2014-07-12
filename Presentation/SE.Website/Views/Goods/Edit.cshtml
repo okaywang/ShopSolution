@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "新增/编辑商品";
+}
+@section styles{
+    <style>
+        .form-horizontal .form-control {
+            width: 200px;
+            float:left;
+        }
+    </style>
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">添加商品</div>
+    <div class="panel-body">
+        <form class="form-horizontal j-validate" role="form" method="post">
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">商品名称</label>
+                <input type="text" class="form-control" name="Name">
+            </div>
+            <div class="form-group">
+                <label for="Category" class="col-sm-1 control-label">商品分类</label>
+                <select class="form-control" name="SkuCategoryId">
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Type" class="col-sm-1 control-label">商品类型</label>
+                <select class="form-control" name="SkuTypeId">
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Brand" class="col-sm-1 control-label">商品品牌</label>
+                <select class="form-control" name="BrandId">
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                    <option>方便速食</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">出品商</label>
+                <input type="text" class="form-control" name="SupplierName">
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">规格</label>
+                <input type="text" class="form-control" name="Standard">
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">价格</label>
+                <input type="text" class="form-control" name="Price">
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">单位</label>
+                <select class="form-control" name="UnitId">
+                    <option>瓶</option>
+                    <option>箱</option>
+                    <option>个</option>
+                    <option>件</option>
+                    <option>包</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">优惠价</label>
+                <input type="text" class="form-control" name="DiscountPrice">
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-sm-1 control-label">商品图片</label>
+                <input type="file" class="form-control" name="ImageFileName">
+            </div>
+
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/views/goods/goodsedit.js"></script>
+    <script>
+        $(function () {
+            var instance = new GoodsEdit();
+            instance.init();
+        });
+    </script>
+}
+
+
+
+
