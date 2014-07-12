@@ -81,14 +81,12 @@
     <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
     <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
-    <script src="~/Scripts/views/ShopAccountList.js"></script>
     <script>
 
         var china = new se.ui.control.ChinaArea(".china-area");
 
         viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
             url: "/Account/Shops",
-            rowCommands: se.ui.view.ShopAccount.rowCommands,
             modules: {
                 changePassword: new se.ui.view.EditModule(new se.ui.view.EditModule.Settings({
                     container: $(".modal-content"),
@@ -105,6 +103,12 @@
                         $('#myModal').modal("hide");
                     }
                 }))
+            },
+            rowCommands: {
+                changePassword: function (model) {
+                    viewInstance.modules.changePassword.activate();
+                    viewInstance.modules.changePassword.bindModel(model);
+                }
             }
         }));
 

@@ -7,6 +7,10 @@ function SearchViewBaseClass(settings) {
     function _init() {
         _self.init = init;
 
+        _self.search = search;
+
+        _self.refresh = refresh;
+
         _self.modules = settings.modules;
     }
 
@@ -56,16 +60,16 @@ function SearchViewBaseClass(settings) {
             module.init();
         }
 
-        se.ui.control.Pager.enablePaging(settings.searchResultContainer, load);
+        se.ui.control.Pager.enablePaging(settings.searchResultContainer, refresh);
     }
 
     function search() {
         var model = settings.getCriteriaModel();
         $.extend(_criteria, model);
-        load(0);
+        refresh(0);
     }
 
-    function load(pageIndex) {
+    function refresh(pageIndex) {
         if (pageIndex !== undefined) {
             _criteria.PagingRequest.PageIndex = pageIndex;
         }
