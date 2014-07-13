@@ -54,6 +54,7 @@ function SearchViewBaseClass(settings) {
 
         for (var key in settings.modules) {
             var module = settings.modules[key];
+            module.view = _self;
             module.init();
         }
 

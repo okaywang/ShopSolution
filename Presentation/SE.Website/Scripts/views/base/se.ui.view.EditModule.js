@@ -11,7 +11,7 @@
 
             _self.bindModel = bindModel;
 
-            _self.viewModel = null;
+            _self.viewModel = null; 
         }
 
         function init() {
@@ -73,13 +73,20 @@
 
         function save() {
             var model = settings.getSaveModel(_self.viewModel);
-            var url = settings.getSaveModelId(model) > 0 ? settings.updateUrl : settings.addUrl;
+            var isUpdateMode = settings.getSaveModelId(model) > 0 ;
+            var url = isUpdateMode ? settings.updateUrl : settings.addUrl;
             $(".panel-body").mask("loading...");
             webExpress.utility.ajax.request(url, model,
             function (response) {
                 $(".panel-body").unmask();
                 if (response.IsSuccess) {
                     _self.inactivate();
+                    if (isUpdateMode) {
+                        _self.fire("updated");
+                    }
+                    else {
+                        _self.fire("added");
+                    }
                 } else {
                     alert("保存错误," + response.Message);
                 }

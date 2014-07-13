@@ -46,5 +46,15 @@ namespace SE.Website.Controllers
             return Json(new ResultModel(true));
         }
 
+        /// <summary>
+        /// 删除楼宇
+        /// </summary>
+        public JsonResult Delete(int id)
+        {
+            var entity = _communityBll.Get(id);
+            Guard.IsNotNull<DataNotFoundException>(entity);
+            _communityBll.Delete(entity);
+            return Json(new ResultModel(true));
+        }
     }
 }

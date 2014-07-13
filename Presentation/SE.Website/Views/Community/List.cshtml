@@ -103,22 +103,54 @@
     <script src="~/Scripts/views/ControlBinders.js"></script>
     <script src="~/Scripts/chinaAreaRetriever.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.Module.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
     <script src="~/Scripts/views/base/se.ui.control.Dialog.js"></script>
     <script src="~/Scripts/views/CommunityList.js"></script>
     <script>
         $(".search-criteria .china-area").chinaArea();
 
-        //$(".search-action button").click(function () {
-        //    $("#myModal").modal("show");
-        //    module.bindModel({});
-        //});
-
         var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
             url: "/Community/List",
-            viewCommands: se.ui.view.CommunityList.viewCommands,
-            rowCommands: se.ui.view.CommunityList.rowCommands,
-            modules: se.ui.view.CommunityList.modules
+            viewCommands: {
+                addCommunity: function (model) {
+                    viewInstance.modules.editModule.activate();
+                    viewInstance.modules.editModule.bindModel({});
+                }
+            },
+            rowCommands: {
+                editCommunity: function (model) {
+                    viewInstance.modules.editModule.activate();
+                    viewInstance.modules.editModule.bindModel(model);
+                },
+                deleteCommunity: function (model) {
+                    var container = $(this).closest(".table");
+                    se.helper.ajax.request({
+                        confirmMessage: "确定要删除  " + model.Name + "  吗？删除后，不可恢复！",
+                        container: container,
+                        url: "/Community/Delete",
+                        model: { id: model.Id },
+                        onSuccess: function () {
+                            viewInstance.refresh();
+                        }
+                    });
+                }
+            },
+            modules: {
+                editModule: new CommunityEditModule(new se.ui.view.EditModule.Settings({
+                    container: $(".modal-content"),
+                    addUrl: "/Community/add",
+                    updateUrl: "/Community/update",
+                    activateHandler: function () {
+                        var validator = $("form", $(".modal-content")).validate();
+                        validator.resetForm();
+                        $('#myModal').modal("show");
+                    },
+                    inactivateHandler: function () {
+                        $('#myModal').modal("hide");
+                    }
+                }))
+            }
         }));
         viewInstance.init();
     </script>
