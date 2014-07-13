@@ -33,7 +33,7 @@
 	
 	--系统管理人员
 	Create Table AdminPerson(
-		Id int primary key references Account,
+		Id int primary key references Account on delete CASCADE,
 		Name nvarchar(50) NOT NULL unique,
 		Department nvarchar(50)
 	)

@@ -49,12 +49,14 @@
     <Compile Include="Entities\ShopSearchCriteria.cs" />
     <Compile Include="Entities\SkuCategorySearchCriteria.cs" />
     <Compile Include="Entities\SkuTypeSearchCriteria.cs" />
+    <Compile Include="Entities\ShopSearchCriteria - Copy.cs" />
     <Compile Include="OrderBussinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopBussinessLogic.cs" />
     <Compile Include="CommunityBussinessLogic.cs" />
     <Compile Include="AccountBussinessLogic.cs" />
     <Compile Include="GoodsBussinessLogic.cs" />
+    <Compile Include="PersonBussinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DataAccess\SE.DataAccess\SE.DataAccess.csproj">

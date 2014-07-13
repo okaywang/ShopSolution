@@ -20,6 +20,8 @@
         _init();
     }
 
+
+
     function NativeInputBinderClass() {
         var _self = this;
         function _init() {
@@ -30,6 +32,10 @@
             var propName = $property.attr("property-name");
             var expression = $(control).attr("data-bind");
             expression = "value:" + propName;
+            var containerBinding = $property.attr("container-bind")
+            if (containerBinding) {
+                $property.attr("data-bind", containerBinding);
+            }
             $(control).attr("name", propName);
             $(control).attr("data-bind", expression);
         }

@@ -3,7 +3,6 @@ using SE.BussinessLogic;
 using SE.DataAccess;
 using SE.Website.Filters;
 using SE.Website.Models;
-using SE.Website.Models.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +18,12 @@ namespace SE.Website.Controllers
     {
         private ShopBussinessLogic _shopBll;
         private AccountBussinessLogic _accountBll;
-        public AccountController(ShopBussinessLogic shopBll, AccountBussinessLogic accountBll)
+        private PersonBussinessLogic _personBll;
+        public AccountController(ShopBussinessLogic shopBll, AccountBussinessLogic accountBll, PersonBussinessLogic personBll)
         {
             _shopBll = shopBll;
             _accountBll = accountBll;
+            _personBll = personBll;
         }
 
         public ActionResult Index()
@@ -35,7 +36,7 @@ namespace SE.Website.Controllers
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
@@ -52,12 +53,12 @@ namespace SE.Website.Controllers
                 return Json(reModel);
             }
             var captcha = Session["captcha"];
-            if (captcha == null || !captcha.ToString().Equals(model.Captcha,StringComparison.CurrentCultureIgnoreCase))
+            if (captcha == null || !captcha.ToString().Equals(model.Captcha, StringComparison.CurrentCultureIgnoreCase))
             {
                 return Json(new ResultModel(false, "验证码错误"));
             }
             var entity = _accountBll.GetAccountByLoginName(model.LoginName);
-            if (entity==null)
+            if (entity == null)
             {
                 return Json(new ResultModel(false, "用户名或密码错误"));
             }
@@ -66,7 +67,7 @@ namespace SE.Website.Controllers
                 return Json(new ResultModel(false, "密码错误"));
             }
             IAuthenticationService _authenticationService = new FormAuthenticationService();
-            _authenticationService.SignIn(model.LoginName,model.RememberMe);
+            _authenticationService.SignIn(model.LoginName, model.RememberMe);
 
             return Json(new ResultModel(true));
         }
@@ -85,9 +86,20 @@ namespace SE.Website.Controllers
             _authenticationService.SignOut();
             return RedirectToAction("Login", "Account");
         }
-        
+
         #endregion
 
+        #region 删除账号
+        public JsonResult Delete(int accountId)
+        {
+            var account = _accountBll.Get(accountId);
+            Guard.IsNotNull<DataNotFoundException>(account);
+            _accountBll.Delete(account);
+            return Json(new ResultModel(true));
+        }
+        #endregion
+
+        #region 重设密码
         [HttpPost]
         public ActionResult ResetPassword(int accountId)
         {
@@ -97,6 +109,7 @@ namespace SE.Website.Controllers
             _accountBll.Update(account);
             return Json(new ResultModel(true));
         }
+        #endregion
 
         #region 账号密码修改
         public ActionResult ChangePassword(ChangePasswordModel model)
@@ -110,7 +123,7 @@ namespace SE.Website.Controllers
             account.Password = model.NewPassword;
             _accountBll.Update(account);
             return Json(new ResultModel(true));
-        } 
+        }
         #endregion
 
         #region 商户账号
@@ -125,7 +138,36 @@ namespace SE.Website.Controllers
             var result = _shopBll.Search(criteria);
             var model = result.ToPagedModel<Shop, ShopAccountModel>();
             return PartialView("_Shops", model);
-        } 
+        }
+        #endregion
+
+        #region 内部账号
+        public ActionResult Persons()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public PartialViewResult Persons(PersonSearchCriteria criteria)
+        {
+            var result = _personBll.Search(criteria);
+            var model = result.ToPagedModel<AdminPerson, PersonAccountModel>();
+            return PartialView("_Persons", model);
+        }
+
+        public JsonResult AddPersonAccount(PersonAccountModel model)
+        {
+            var entity = model.Translate(model);
+            _personBll.Insert(entity);
+            return Json(new ResultModel(true));
+        }
+
+        public JsonResult UpdatePersonAccount(PersonAccountModel model)
+        {
+            var entity = model.Translate(model);
+            _personBll.Update(entity);
+            return Json(new ResultModel(true));
+        }
         #endregion
 
     }

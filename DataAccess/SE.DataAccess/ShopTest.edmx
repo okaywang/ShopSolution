@@ -763,7 +763,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="AccountType" Type="Int32" Nullable="false" />
+          <Property Name="AccountType" Type="ShopTest10Model.AccountType" Nullable="false" />
           <NavigationProperty Name="AccountAuthority" Relationship="ShopTest10Model.FK__AccountAu__Accou__7C4F7684" FromRole="Account" ToRole="AccountAuthority" />
           <NavigationProperty Name="AdminPerson" Relationship="ShopTest10Model.FK__AdminPerson__Id__1FCDBCEB" FromRole="Account" ToRole="AdminPerson" />
           <NavigationProperty Name="Shop" Relationship="ShopTest10Model.FK__Shop__Id__37A5467C" FromRole="Account" ToRole="Shop" />
@@ -1309,6 +1309,7 @@
         </Association>
         <EnumType Name="GenderType" a:ExternalTypeName="SE.Common.Types.GenderType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EnumType Name="ShopCooperationStatus" a:ExternalTypeName="SE.Common.Types.ShopCooperationStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="AccountType" a:ExternalTypeName="SE.Common.Types.AccountType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

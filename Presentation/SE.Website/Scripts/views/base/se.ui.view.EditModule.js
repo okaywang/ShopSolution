@@ -11,13 +11,18 @@
 
             _self.bindModel = bindModel;
 
-            _self.viewModel = null; 
+            _self.viewModel = null;
         }
 
         function init() {
             attachBindingAttribute();
 
             initValidation();
+
+            for (var key in settings.eventHandlers) {
+                var handler = settings.eventHandlers[key];
+                _self.on(key, handler);
+            }
 
             settings.saveButton.click(function () {
                 var isValid = settings.form.valid();
@@ -73,7 +78,7 @@
 
         function save() {
             var model = settings.getSaveModel(_self.viewModel);
-            var isUpdateMode = settings.getSaveModelId(model) > 0 ;
+            var isUpdateMode = settings.getSaveModelId(model) > 0;
             var url = isUpdateMode ? settings.updateUrl : settings.addUrl;
             $(".panel-body").mask("loading...");
             webExpress.utility.ajax.request(url, model,
@@ -98,7 +103,7 @@
 
     function EditModuleSettings(settings) {
         se.ui.view.Module.Settings.call(this);
-
+        this.eventHandlers = {};
         this.getSaveModel = function (viewModel) {
             return viewModel;
         }

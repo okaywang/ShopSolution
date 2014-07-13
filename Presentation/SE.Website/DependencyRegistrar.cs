@@ -23,6 +23,7 @@ namespace SE.Website
             builder.RegisterType<CommunityBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<CustomerBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<AccountBussinessLogic>().InstancePerHttpRequest();
+            builder.RegisterType<PersonBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<ChinaAreaBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<GoodsBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<OrderBussinessLogic>().InstancePerHttpRequest();

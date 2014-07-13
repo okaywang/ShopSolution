@@ -127,7 +127,7 @@
         var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
             url: "/Community/List",
             viewCommands: {
-                addCommunity: function (model) {
+                addCommunity: function () {
                     viewInstance.modules.editModule.setTitle("新增楼宇");
                     viewInstance.modules.editModule.activate();
                     viewInstance.modules.editModule.bindModel({

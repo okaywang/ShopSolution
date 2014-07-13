@@ -7,6 +7,8 @@
         var _self = this;
         var _settings = settings;
         function _init() {
+            _self.container = settings.container;
+
             _self.setTitle = setTitle;
 
             _self.activate = activate;

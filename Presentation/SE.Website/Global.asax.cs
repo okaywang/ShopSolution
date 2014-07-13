@@ -27,6 +27,8 @@ namespace SE.Website
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ViewEngines.Engines.Add(new SEViewEngine());
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(RequiredIfAttribute), typeof(RequiredAttributeAdapter));
 
             //启用压缩
             BundleTable.EnableOptimizations = false;//发布时设置为true

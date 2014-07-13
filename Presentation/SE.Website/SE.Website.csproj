@@ -136,6 +136,8 @@
   <ItemGroup>
     <Compile Include="ChinaAreaScriptWriter.cs" />
     <Compile Include="Common\ControlTypes.cs" />
+    <Compile Include="Common\RequiredIfAttribute.cs" />
+    <Compile Include="Common\SEViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
@@ -151,6 +153,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountModel.cs" />
     <Compile Include="Models\Account\ChangePasswordModel.cs" />
+    <Compile Include="Models\Account\PersonAccountModel.cs" />
     <Compile Include="Models\Common\PagedModel.cs" />
     <Compile Include="Models\Account\ShopAccountModel.cs" />
     <Compile Include="Models\Common\ResultModel.cs" />
@@ -388,6 +391,9 @@
     <Content Include="Views\Shop\_List.cshtml" />
     <Content Include="Views\Customer\List.cshtml" />
     <Content Include="Views\Customer\_List.cshtml" />
+    <Content Include="Views\Account\Persons.cshtml" />
+    <Content Include="Views\Account\_Persons.cshtml" />
+    <Content Include="Views\Shared\Modules\_ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\config\" />
