@@ -15,14 +15,14 @@
     <div class="panel-body">
         <form class="form-horizontal" role="form">
             <div class="form-group" property-name="@PropName(i => i.Name)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true" >
-                <label class="col-sm-1 control-label">商品名称</label>
-                <div class="col-sm-3 form-inline">
+                <label class="col-md-2 control-label">商品名称</label>
+                <div class="col-md-10 form-inline">
                     <input type="text" class="form-control" name="Name">
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.CountyId)" control-type="@ControlTypes.ChinaAreas" validate-rule="required:true">
-                <label class="col-sm-1 control-label">商户地址</label>
-                <div class="col-sm-3 china-area form-inline">
+                <label class="col-md-2 control-label">商户地址</label>
+                <div class="col-md-10 china-area form-inline">
                     <select name="ProvinceId" class="form-control">
                         <option>shandong</option>
                     </select>
@@ -37,56 +37,58 @@
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.DetailAddress)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label"></label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control">
+                <label class="col-md-2"></label>
+                <div class="col-md-10 form-inline">
+                    <input type="text" class="form-control" style="width: 400px;">
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.ContactName)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label">联系人</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-sm-2" property-name="@PropName(i => i.ContactGender)" control-type="@ControlTypes.NativeRadiobutton">
-                    <label class="radio-inline">
-                        <input type="radio" name="Gender" value="@((int)GenderType.Male)">
-                        先生
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="Gender" value="@((int)GenderType.Female)">
-                        女士
-                    </label>
+                <label class="col-md-2 control-label">联系人</label>
+                <div class="form-inline">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2" property-name="@PropName(i => i.ContactGender)" control-type="@ControlTypes.NativeInputRadio">
+                        <label class="radio-inline">
+                            <input type="radio" name="Gender" value="@((int)GenderType.Male)">
+                            先生
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="Gender" value="@((int)GenderType.Female)">
+                            女士
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.MobilePhoneNumber)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label">联系电话</label>
-                <div class="col-sm-2">
+                <label class="col-md-2 control-label">联系电话</label>
+                <div class="col-md-10 form-inline">
                     <input type="text" class="form-control">
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.TelePhoneNumber)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label">座机</label>
-                <div class="col-sm-2">
+                <label class="col-md-2 control-label">座机</label>
+                <div class="col-md-10 form-inline">
                     <input type="text" class="form-control" />
                 </div>
             </div>
             <div class="form-group" validate-rule="required:true">
-                <label class="col-sm-1 control-label">营业时间</label>
-                <div class="col-sm-2 form-inline">
+                <label class="col-md-2 control-label">营业时间</label>
+                <div class="col-md-10 form-inline">
                     <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.OpeningTime)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                        <input type="text" class="form-control timepicker">
+                        <input type="text" class="form-control timepicker" style="width: 86px;">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                     -
                     <div class="input-group bootstrap-timepicker" property-name="@PropName(i => i.ClosingTime)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                        <input type="text" class="form-control timepicker">
+                        <input type="text" class="form-control timepicker" style="width: 86px;">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.DeliveryMinAmount)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label">起送价格</label>
-                <div class="col-sm-2">
+                <label class="col-md-2 control-label">起送价格</label>
+                <div class="col-md-10 form-inline">
                     <div class="input-group">
                         <input type="text" class="form-control">
                         <span class="input-group-addon">元</span>
@@ -94,8 +96,8 @@
                 </div>
             </div>
             <div class="form-group" property-name="@PropName(i => i.DeliveryRate)" control-type="@ControlTypes.NativeInputText" validate-rule="required:true">
-                <label class="col-sm-1 control-label">配送费用</label>
-                <div class="col-sm-2">
+                <label class="col-md-2 control-label">配送费用</label>
+                <div class="col-md-10 form-inline">
                     <div class="input-group">
                         <input type="text" class="form-control">
                         <span class="input-group-addon">元</span>
@@ -103,15 +105,13 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="Name" class="col-sm-1 control-label">超市logo</label>
-                <div class="col-sm-2">
+                <label for="Name" class="col-md-2 control-label">超市logo</label>
+                <div class="col-md-10 form-inline">
                     <input type="file" class="form-control">
                 </div>
             </div>
-
-
             <div class="form-group">
-                <div class="col-sm-offset-1">
+                <div class="col-md-offset-2">
                     <button type="button" class="btn btn-primary btn-save">提交</button>
                 </div>
             </div>
@@ -120,13 +120,6 @@
 </div>
 
 @section scripts{
-
-    <script src="~/Scripts/bootstrap-timepicker.js"></script>
-
-    <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
-    <script src="~/Scripts/views/ControlBinders.js"></script>
-
-    <script src="~/Scripts/views/base/se.ui.view.EditViewBase.js"></script>
     <script src="~/Scripts/views/ShopEdit.js"></script>
     <script>
         $('.timepicker').timepicker({showMeridian:false});

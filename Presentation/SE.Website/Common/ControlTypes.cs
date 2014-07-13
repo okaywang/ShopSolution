@@ -11,13 +11,12 @@ namespace SE.Website
         public const string NativeInputText = "nativeInputText";
         public const string NativeInputDate = "nativeInputDate";
         public const string NativeInputPassword = "nativeInputPassword";
+        public const string NativeInputRadio = "nativeInputRadio";
+        public const string NativeInputCheckbox = "nativeInputCheckbox";
 
         //native select
         public const string NativeSelect = "nativeSelect";
 
-
-        public const string NativeRadiobutton = "nativeRadiobutton";
-        public const string NativeCheckbox = "nativeCheckbox";
 
         public const string ChinaAreas = "chinaAreas";
         //public const string SimpleTextbox = "SimpleTextbox";

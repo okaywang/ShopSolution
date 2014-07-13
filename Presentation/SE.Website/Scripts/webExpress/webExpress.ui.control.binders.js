@@ -20,8 +20,6 @@
         _init();
     }
 
-
-
     function NativeInputBinderClass() {
         var _self = this;
         function _init() {

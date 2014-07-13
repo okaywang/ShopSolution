@@ -333,6 +333,7 @@
     <Content Include="Scripts\jquery.loadmask.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\Kendo\kendo.web.js" />
+    <Content Include="Scripts\webExpress\webExpress.ui.control.binders.js" />
     <Content Include="Scripts\views\base\se.ui.view.EditModule.js" />
     <Content Include="Scripts\views\base\se.ui.view.SearchViewBase.js" />
     <Content Include="Scripts\views\base\se.ui.control.Eventable.js" />
@@ -341,11 +342,9 @@
     <Content Include="Scripts\views\ControlBinders.js" />
     <Content Include="Scripts\views\Goods\Category.js" />
     <Content Include="Scripts\views\Goods\GoodsEdit.js" />
-    <Content Include="Scripts\views\ShopList.js" />
     <Content Include="Scripts\views\ShopEdit.js" />
     <Content Include="Scripts\views\CommunityList.js" />
     <Content Include="Scripts\webExpress\webExpress.js" />
-    <Content Include="Scripts\webExpress\webExpress.ui.control.adapter.js" />
     <Content Include="Scripts\webExpress\webExpress.ui.control.confirmWindow.js" />
     <Content Include="Scripts\webExpress\webExpress.utility.ajax.js" />
     <Content Include="Scripts\webExpress\webExpress.utility.js" />
@@ -375,8 +374,6 @@
     <Content Include="Views\Shop\List.cshtml" />
     <Content Include="Views\Community\List.cshtml" />
     <Content Include="Views\Community\_List.cshtml" />
-    <Content Include="Scripts\views\base\se.ui.control.Dialog.js" />
-    <Content Include="Views\Shop\Detail.cshtml" />
     <Content Include="Views\Goods\Edit.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shop\Detail.cshtml" />
