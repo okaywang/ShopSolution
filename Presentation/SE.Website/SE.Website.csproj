@@ -143,8 +143,9 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="DependencyRegistrar.cs" />
-    <Compile Include="Filters\FormAuthenticationService.cs" />
-    <Compile Include="Filters\IAuthenticationService.cs" />
+    <Compile Include="Authentication\FormAuthenticationService.cs" />
+    <Compile Include="Authentication\IAuthenticationService.cs" />
+    <Compile Include="Filters\ValidateModelStateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,6 +270,7 @@
     <Content Include="Content\i\img-x.psd" />
     <Content Include="Content\i\sprite-icon.psd" />
     <Content Include="ConnectionStrings.config" />
+    <Content Include="Scripts\chinaArea.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js.map" />
     <None Include="Scripts\jquery-2.0.2.intellisense.js" />
     <Content Include="Scripts\bootbox.js" />
@@ -298,7 +300,6 @@
     <Content Include="Scripts\BtJs\tooltip.js" />
     <Content Include="Scripts\BtJs\transition.js" />
     <Content Include="Scripts\BtJs\uglify.js" />
-    <Content Include="Scripts\chinaArea.js" />
     <Content Include="Scripts\chinaAreaRetriever.js" />
     <Content Include="Scripts\common\se.js" />
     <Content Include="Scripts\date\calendar.js" />
@@ -339,7 +340,6 @@
     <Content Include="Scripts\views\Goods\GoodsEdit.js" />
     <Content Include="Scripts\views\ShopList.js" />
     <Content Include="Scripts\views\ShopEdit.js" />
-    <Content Include="Scripts\views\ShopAccountList.js" />
     <Content Include="Scripts\views\CommunityList.js" />
     <Content Include="Scripts\webExpress\webExpress.js" />
     <Content Include="Scripts\webExpress\webExpress.ui.control.adapter.js" />

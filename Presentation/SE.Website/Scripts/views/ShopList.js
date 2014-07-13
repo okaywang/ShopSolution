@@ -1,6 +1,6 @@
 ﻿se.view = {};
 se.view.ShopAccount = {};
-se.view.ShopAccount.commands = {
+se.view.ShopAccount.rowCommands = {
     resetPassword: function (model) {
         var self = this;
         bootbox.confirm("您确定将 " + model.Name + " 的密码重置为123456吗？", function (sure) {

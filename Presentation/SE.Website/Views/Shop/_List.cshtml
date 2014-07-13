@@ -17,15 +17,15 @@
                 for (int i = 0; i < Model.Items.Count; i++)
                 {
                     var item = Model.Items[i];
-                <tr model-field-entry="AccountId:@item.AccountId,ShopId:@item.Id">
-                    <td>@(startNo + i)</td>
+                <tr model-field-entry="AccountId:@item.AccountId,ShopId:@item.Id,TemporaryClosingBeginDate:'@item.TemporaryClosingBeginDate.ToShortGeneralString()',TemporaryClosingEndDate:'@item.TemporaryClosingEndDate.ToShortGeneralString()'">
+                    <td model-field="tt">@(startNo + i)</td>
                     <td model-field="Name">@item.Name</td>
                     <td>@item.CityName</td>
                     <td>@item.ShopStatus.GetDisplayText()</td>
                     <td>@item.ShopOpenDateTime.ToShortGeneralString()</td>
                     <td>
                         
-                        <a href="javascript:;" command-name="setAuthority" >打烊</a>
+                        <a href="javascript:;" command-name="stopBussinessing" >打烊</a>
                         <a href="javascript:;" command-name="closeShop" >关店</a>
                         <a command-name="viewDetail" href="/Shop/Detail/@item.Id" target="_blank" >查看</a>
                         <a href="javascript:;" command-name="setAuthority" >设置权限</a>

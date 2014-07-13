@@ -5,11 +5,13 @@
     function EditModuleClass(settings) {
         se.ui.view.Module.call(this, settings);
         var _self = this;
-        var _viewModel;
+        //var _viewModel;
         function _init() {
             _self.init = init;
 
             _self.bindModel = bindModel;
+
+            _self.viewModel = null;
         }
 
         function init() {
@@ -30,13 +32,13 @@
                 this.adaptModel(model);
             }
 
-            _viewModel = kendo.observable(model);
+            _self.viewModel = kendo.observable(model);
 
             if (this.adaptViewModel) {
-                this.adaptViewModel(_viewModel);
+                this.adaptViewModel(_self.viewModel);
             }
 
-            kendo.bind(settings.form, _viewModel);
+            kendo.bind(settings.form, _self.viewModel);
         }
 
         function attachBindingAttribute() {
@@ -70,7 +72,7 @@
         }
 
         function save() {
-            var model = settings.getSaveModel(_viewModel);
+            var model = settings.getSaveModel(_self.viewModel);
             var url = settings.getSaveModelId(model) > 0 ? settings.updateUrl : settings.addUrl;
             $(".panel-body").mask("loading...");
             webExpress.utility.ajax.request(url, model,

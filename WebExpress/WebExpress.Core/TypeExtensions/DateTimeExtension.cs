@@ -28,6 +28,14 @@ namespace WebExpress.Core
         {
             return dt.ToString("yyyy-MM-dd");
         }
+        public static string ToShortGeneralString(this DateTime? dt)
+        {
+            if (dt.HasValue)
+            {
+                return dt.Value.ToShortGeneralString();
+            }
+            return string.Empty;
+        }
 
         public static bool WithinPeriod(this TimeSpan ts, TimeSpan begin, TimeSpan end)
         {

@@ -54,7 +54,7 @@
                         _viewModel.set("CityId", cities[1].Value);
                     }
                     else {
-                        _viewModel.set("CityId", 0);
+                        _viewModel.set("CityId", "");
                     }
                 }
 
@@ -64,7 +64,7 @@
                         counties = [{ Value: "", Text: "未填" }];
                     }
                     _viewModel.set("SourceCounties", counties);
-                    _viewModel.set("CountyId", 0);
+                    _viewModel.set("CountyId", "");
                 }
             });
 

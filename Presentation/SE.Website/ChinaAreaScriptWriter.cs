@@ -38,7 +38,7 @@ namespace SE.Website
         {
             var sb = new StringBuilder();
             sb.AppendFormat("[");
-            sb.AppendFormat("{{Value:0,Text:'未填'}},");
+            sb.AppendFormat("{{Value:'',Text:'未填'}},");
             foreach (var item in items)
             {
                 sb.AppendFormat("{{Value:{0},Text:'{1}'}},", item.Id, item.Name);

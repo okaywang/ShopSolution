@@ -1,6 +1,7 @@
 ﻿(function () {
     webExpress.ui.control.binders = new BindersClass();
     webExpress.ui.control.binders.nativeInputText = new NativeInputTextBinderClass();
+    webExpress.ui.control.binders.nativeInputDate = new NativeInputDateBinderClass();
     webExpress.ui.control.binders.nativeInputPassword = new NativeInputPasswordBinderClass();
     webExpress.ui.control.binders.nativeRadiobutton = new NativeRadiobuttonBinderClass();
     webExpress.ui.control.binders.chinaAreas = new ChinaAreasBinderClass();
@@ -11,7 +12,9 @@
         }
         function get(controlType) {
             if (controlType == "NativeInputText") {
-                return webExpress.ui.control.binders.nativeTextbox;
+                return webExpress.ui.control.binders.nativeInputText;
+            } else if (controlType == "NativeInputDate") {
+                return webExpress.ui.control.binders.nativeInputDate;
             } else if (controlType == "NativeInputPassword") {
                 return webExpress.ui.control.binders.nativeInputPassword;
             } else if (controlType == "ChinaAreas") {
@@ -29,7 +32,7 @@
             _self.build = build;
         }
         function build($property) {
-            var control = $property.find("*").andSelf().filter(_self.selector);
+            var control = $property.find("*").andSelf().filter(this.selector);
             var propName = $property.attr("property-name");
             var expression = $(control).attr("data-bind");
             expression = "value:" + propName;
@@ -48,12 +51,42 @@
         _init();
     }
 
+    function NativeInputDateBinderClass() {
+        NativeInputBinderClass.call(this);
+        var base = {};
+        NativeInputBinderClass.call(base);
+        var _self = this;
+        function _init() {
+            _self.selector = "input[type=date]";
+
+            _self.build = build;
+        }
+
+        function build($property) {
+            base.build.call(_self, $property);
+            var control = $property.find("*").andSelf().filter(this.selector);
+            var propName = $property.attr("property-name");
+            control.attr("id", propName);
+            $property.find(".input-group-addon").click(function () {
+                WdatePicker({
+                    el: propName,
+                    dateFmt: 'yyyy-MM-dd',
+                    onpicked: function () {
+                        $(this).trigger("change");
+                    }
+                })
+            });
+        }
+        _init();
+    }
+
     function NativeInputPasswordBinderClass() {
         NativeInputBinderClass.call(this);
         var _self = this;
         function _init() {
             _self.selector = ":password";
         }
+
         _init();
     }
 

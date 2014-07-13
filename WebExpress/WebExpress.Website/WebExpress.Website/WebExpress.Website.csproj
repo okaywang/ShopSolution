@@ -85,6 +85,7 @@
     <Compile Include="Exceptions\AuthorizationException.cs" />
     <Compile Include="Exceptions\DataNotFoundException.cs" />
     <Compile Include="Exceptions\PageNotFoundException.cs" />
+    <Compile Include="Exceptions\DataNotExpectedException.cs" />
     <Compile Include="Filters\ExceptionResolverFilter.cs" />
     <Compile Include="ModelBinders\Class1.cs" />
     <Compile Include="ModelBinders\TrimModelBinder.cs" />

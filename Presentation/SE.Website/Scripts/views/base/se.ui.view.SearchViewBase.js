@@ -27,14 +27,11 @@ function SearchViewBaseClass(settings) {
             var handlerProxy = (function (callback) {
                 return function () {
                     var tr = $(this).closest("tr");
-                    var entries = tr.attr("model-field-entry").split(",");
-                    var model = {};
-                    for (var i = 0; i < entries.length; i++) {
-                        var entry = entries[i];
-                        var key = entry.split(":")[0];
-                        var val = entry.split(":")[1];
-                        model[key] = val;
-                    }
+                    var str = tr.attr("model-field-entry");
+                    var strNormalized = str.replace(/:(?=,)|:(?=$)/g, ":null");
+                    var entries = strNormalized.split(",");
+                    var model = webExpress.utility.string.getObject(entries);
+
                     var tds = $(this).closest("tr").find("td[model-field]");
                     for (var i = 0; i < tds.length; i++) {
                         var td = $(tds[i]);
@@ -85,6 +82,9 @@ function SearchViewBaseClass(settings) {
                 }
 
                 settings.searchResultContainer.unmask();
+            },
+            function (state,response,status) {
+                alert(arguments);
             }
          );
     }

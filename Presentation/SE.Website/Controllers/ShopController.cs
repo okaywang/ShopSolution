@@ -87,5 +87,19 @@ namespace SE.Website.Controllers
             _shopBll.Update(shop);
             return Json(new ResultModel(true));
         }
+
+        /// <summary>
+        /// 打烊
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult StopBussinessing(int shopId, DateTime TemporaryClosingBeginDate, DateTime TemporaryClosingEndDate)
+        {
+            var shop = _shopBll.Get(shopId);
+            Guard.IsNotNull<DataNotFoundException>(shop);
+            shop.TemporaryClosingBeginDate = TemporaryClosingBeginDate;
+            shop.TemporaryClosingEndDate = TemporaryClosingEndDate;
+            _shopBll.Update(shop);
+            return Json(new ResultModel(true)); 
+        }
     }
 }

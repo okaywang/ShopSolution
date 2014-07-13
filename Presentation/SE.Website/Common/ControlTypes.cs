@@ -8,6 +8,7 @@ namespace SE.Website
     public static class ControlTypes
     {
         public const string NativeInputText = "NativeInputText";
+        public const string NativeInputDate = "NativeInputDate";
         public const string NativeInputPassword = "NativeInputPassword"; 
 
         public const string NativeRadiobutton = "NativeRadiobutton";
