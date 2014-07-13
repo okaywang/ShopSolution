@@ -3,7 +3,10 @@
     webExpress.ui.control.binders.nativeInputText = new NativeInputTextBinderClass();
     webExpress.ui.control.binders.nativeInputDate = new NativeInputDateBinderClass();
     webExpress.ui.control.binders.nativeInputPassword = new NativeInputPasswordBinderClass();
-    webExpress.ui.control.binders.nativeRadiobutton = new NativeRadiobuttonBinderClass();
+    webExpress.ui.control.binders.nativeInputRadio = new NativeInputRadioBinderClass();
+
+    webExpress.ui.control.binders.nativeSelect = new NativeSelectBinderClass();
+
     webExpress.ui.control.binders.chinaAreas = new ChinaAreasBinderClass();
     function BindersClass() {
         var _self = this;
@@ -11,16 +14,7 @@
             _self.get = get;
         }
         function get(controlType) {
-            if (controlType == "NativeInputText") {
-                return webExpress.ui.control.binders.nativeInputText;
-            } else if (controlType == "NativeInputDate") {
-                return webExpress.ui.control.binders.nativeInputDate;
-            } else if (controlType == "NativeInputPassword") {
-                return webExpress.ui.control.binders.nativeInputPassword;
-            } else if (controlType == "ChinaAreas") {
-                return webExpress.ui.control.binders.chinaAreas;
-            } else if (controlType == "NativeRadiobutton")
-                return webExpress.ui.control.binders.nativeRadiobutton;
+            return webExpress.ui.control.binders[controlType];
         }
 
         _init();
@@ -90,7 +84,7 @@
         _init();
     }
 
-    function NativeRadiobuttonBinderClass() {
+    function NativeInputRadioBinderClass() {
         var _self = this;
         function _init() {
             _self.build = build;
@@ -105,6 +99,24 @@
                 $(control).attr("name", propName);
                 $(control).attr("data-bind", expression);
             }
+        }
+        _init();
+    }
+
+    function NativeSelectBinderClass() {
+        var _self = this;
+
+        function _init() {
+            _self.build = build;
+        }
+        function build($property) {
+            //source-property-name
+            var control = $property.find("*").andSelf().filter("select");
+            var propName = $property.attr("property-name");
+            var expression = $(control).attr("data-bind");
+            expression = "value:" + propName;
+            $(control).attr("name", propName);
+            $(control).attr("data-bind", expression);
         }
         _init();
     }

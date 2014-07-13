@@ -72,6 +72,22 @@
                                     <input type="text" class="form-control" />
                                 </div>
                             </div>
+                            <div class="form-group" property-name="FirstLetter" control-type="@ControlTypes.NativeSelect" validate-rule="required:true">
+                                <label class="col-md-3 control-label">首字母</label>
+                                <div class="col-md-5">
+                                    <select class="form-control">
+                                        <option value="">未选</option>
+                                        @{
+                                            var letters = EnumExtenstion.GetEnumItems<FirstLetters>();
+                                            foreach (var item in letters)
+                                            {
+                                                var val = @item.Text;
+                                            <option value="@val">@val</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group" property-name="Longitude" control-type="@ControlTypes.NativeInputText">
                                 <label class="col-md-3 control-label">经度</label>
                                 <div class="col-md-5">
@@ -105,21 +121,23 @@
     <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.Module.js"></script>
     <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
-    <script src="~/Scripts/views/base/se.ui.control.Dialog.js"></script>
     <script src="~/Scripts/views/CommunityList.js"></script>
     <script>
         $(".search-criteria .china-area").chinaArea();
-
         var viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
             url: "/Community/List",
             viewCommands: {
                 addCommunity: function (model) {
+                    viewInstance.modules.editModule.setTitle("新增楼宇");
                     viewInstance.modules.editModule.activate();
-                    viewInstance.modules.editModule.bindModel({});
+                    viewInstance.modules.editModule.bindModel({
+                        FirstLetter:""
+                    });
                 }
             },
             rowCommands: {
                 editCommunity: function (model) {
+                    viewInstance.modules.editModule.setTitle("编辑楼宇");
                     viewInstance.modules.editModule.activate();
                     viewInstance.modules.editModule.bindModel(model);
                 },
@@ -141,12 +159,15 @@
                     container: $(".modal-content"),
                     addUrl: "/Community/add",
                     updateUrl: "/Community/update",
-                    activateHandler: function () {
+                    setTitle: function (title) {
+                        $(".modal-title", $(".modal-content")).text(title);
+                    },
+                    activate: function () {
                         var validator = $("form", $(".modal-content")).validate();
                         validator.resetForm();
                         $('#myModal').modal("show");
                     },
-                    inactivateHandler: function () {
+                    inactivate: function () {
                         $('#myModal').modal("hide");
                     }
                 }))

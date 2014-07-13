@@ -7,27 +7,39 @@
         var _self = this;
         var _settings = settings;
         function _init() {
+            _self.setTitle = setTitle;
+
             _self.activate = activate;
 
             _self.inactivate = inactivate;
         }
 
+        function setTitle(title) {
+            _settings.setTitle.call(this, title);
+        }
+
         function activate() {
-            _settings.activateHandler.call(this);
+            _settings.activate.call(this);
         }
 
         function inactivate() {
-            _settings.inactivateHandler.call(this);
+            _settings.inactivate.call(this);
         }
 
         _init();
     }
 
     function ModuleSettings(settings) {
-        this.activateHandler = function () {
+        this.activate = function () {
+
         }
 
-        this.inactivateHandler = function () {
+        this.inactivate = function () {
+
+        }
+
+        this.setTitle = function (title) {
+
         }
 
         $.extend(this, settings);

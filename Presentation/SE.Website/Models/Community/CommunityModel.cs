@@ -21,6 +21,7 @@ namespace SE.Website.Models
         public int CityId { get; set; }
         public int CountyId { get; set; }
 
+        public string FirstLetter { get; set; }
 
         public CommunityListItemModel Translate(Community from)
         {
@@ -38,6 +39,7 @@ namespace SE.Website.Models
                 this.CityId = from.ChinaCounty.CityId;
                 this.ProvinvceId = from.ChinaCounty.ChinaCity.ChinaProvince.Id;
             }
+            this.FirstLetter = from.FirstLetter;
             return this;
         }
 
@@ -49,6 +51,7 @@ namespace SE.Website.Models
             to.Name = from.Name;
             to.Longitude = from.Longitude;
             to.Latitude = from.Latitude;
+            to.FirstLetter = from.FirstLetter;
             return to;
         }
     }

@@ -94,12 +94,12 @@
                     getSaveModelId: function (saveModel) {
                         return saveModel.ShopId;
                     },
-                    activateHandler: function () {
+                    activate: function () {
                         var validator = $("form", $(".modal-content")).validate();
                         validator.resetForm();
                         $('#myModal').modal("show");
                     },
-                    inactivateHandler: function () {
+                    inactivate: function () {
                         $('#myModal').modal("hide");
                     }
                 }))
