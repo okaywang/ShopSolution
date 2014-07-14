@@ -1,0 +1,86 @@
+﻿<div class="search-criteria" style="padding: 20px 0; border-bottom: 1px dotted #e2e2e2">
+    <form class="form-inline" role="form">
+    </form>
+</div>
+
+<div class="search-feedback">
+</div>
+
+<div class="search-action">
+    <button type="button" class="btn btn-primary btn-sm" command-name="add">添加品牌</button>
+</div>
+
+<div class="search-result table-responsive" style="margin-top: 20px;">
+</div>
+
+<div class="search-widget">
+    <div class="search-widget-edit-name">
+        @Html.Partial("_EditName")
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/views/base/se.ui.view.Module.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.EditModule.js"></script>
+    <script src="~/Scripts/views/base/se.ui.control.ChinaArea.js"></script>
+    <script src="~/Scripts/views/base/se.ui.view.SearchViewBase.js"></script>
+    <script>
+        viewInstance = new se.ui.view.SearchViewBase(new se.ui.view.SearchViewBase.Settings({
+            url: "/Brand/List",
+            modules: {
+                editName: new se.ui.view.EditModule(new se.ui.view.EditModule.Settings({
+                    container: $(".search-widget-edit-name"),
+                    addUrl: "/Brand/Add",
+                    updateUrl: "/Brand/Update",
+                    setTitle: function (title) {
+                        $(".modal-title", this.container).text(title);
+                    },
+                    activate: function () {
+                        var validator = $("form", this.container).validate();
+                        validator.resetForm();
+                        $('.modal', this.container).modal("show");
+                    },
+                    inactivate: function () {
+                        $('.modal', this.container).modal("hide");
+                    },
+                    eventHandlers: {
+                        added: function () {
+                            viewInstance.search();
+                        },
+                        updated: function () {
+                            viewInstance.refresh();
+                        }
+                    }
+                }))
+            },
+            rowCommands: {
+                edit: function (model) {
+                    viewInstance.modules.editName.setTitle("编辑品牌");
+                    viewInstance.modules.editName.activate();
+                    viewInstance.modules.editName.bindModel(model);
+                },
+                remove: function (model) {
+                    var container = $(this).closest(".table");
+                    se.helper.ajax.request({
+                        confirmMessage: "您确定删除" + model.Name + "吗？",
+                        container: container,
+                        url: "/Brand/Delete",
+                        model: model,
+                        onSuccess: function () {
+                            viewInstance.refresh();
+                        }
+                    });
+                }
+            },
+            viewCommands: {
+                add: function () {
+                    viewInstance.modules.editName.setTitle("添加品牌");
+                    viewInstance.modules.editName.activate();
+                    viewInstance.modules.editName.bindModel({});
+                }
+            }
+        }));
+
+        viewInstance.init();
+    </script>
+}

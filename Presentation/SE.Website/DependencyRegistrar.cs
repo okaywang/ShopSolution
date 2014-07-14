@@ -27,6 +27,7 @@ namespace SE.Website
             builder.RegisterType<ChinaAreaBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<GoodsBussinessLogic>().InstancePerHttpRequest();
             builder.RegisterType<OrderBussinessLogic>().InstancePerHttpRequest();
+            builder.RegisterType<BrandBussinessLogic>().InstancePerHttpRequest();
         }
     }
 }

@@ -139,6 +139,7 @@
     <Compile Include="Common\RequiredIfAttribute.cs" />
     <Compile Include="Common\SEViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Models\Account\AccountModel.cs" />
     <Compile Include="Models\Account\ChangePasswordModel.cs" />
     <Compile Include="Models\Account\PersonAccountModel.cs" />
+    <Compile Include="Models\Brand\BrandModel.cs" />
     <Compile Include="Models\Common\PagedModel.cs" />
     <Compile Include="Models\Account\ShopAccountModel.cs" />
     <Compile Include="Models\Common\ResultModel.cs" />
@@ -339,7 +341,6 @@
     <Content Include="Scripts\views\base\se.ui.control.Eventable.js" />
     <Content Include="Scripts\views\base\se.ui.control.ChinaArea.js" />
     <Content Include="Scripts\views\base\se.ui.view.Module.js" />
-    <Content Include="Scripts\views\ControlBinders.js" />
     <Content Include="Scripts\views\Goods\Category.js" />
     <Content Include="Scripts\views\Goods\GoodsEdit.js" />
     <Content Include="Scripts\views\ShopEdit.js" />
@@ -391,6 +392,9 @@
     <Content Include="Views\Account\Persons.cshtml" />
     <Content Include="Views\Account\_Persons.cshtml" />
     <Content Include="Views\Shared\Modules\_ChangePassword.cshtml" />
+    <Content Include="Views\Brand\List.cshtml" />
+    <Content Include="Views\Brand\_List.cshtml" />
+    <Content Include="Views\Shared\Modules\_EditName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\config\" />

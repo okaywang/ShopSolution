@@ -1,0 +1,36 @@
+﻿@model PagedModel<BrandModel>
+<div class="search-result-table">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>商品类型</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var startNo = Model.PagingResult.PageIndex * Model.PagingResult.PageSize + 1;
+                for (int i = 0; i < Model.Items.Count; i++)
+                {
+                    var item = Model.Items[i];
+                <tr model-field-entry="Id:@item.Id">
+                    <td>@(startNo + i)</td>
+                    <td model-field="Name">@item.Name</td>
+                    <td>@string.Join(",", item.SkuTypes)</td>
+                    <td>
+                        <a href="javascript:;" command-name="edit">编辑</a>
+                        <a href="javascript:;" command-name="remove">删除</a>
+                        <a href="javascript:;" command-name="deleteAccount">关联商品类型</a>
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="search-result-pagination">
+    @Html.Partial("_Pager", Model.PagingResult)
+</div>
